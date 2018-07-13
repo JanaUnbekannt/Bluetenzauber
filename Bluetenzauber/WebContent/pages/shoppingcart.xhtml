@@ -7,44 +7,46 @@
     xmlns:f="http://java.sun.com/jsf/core">
 
 
-
-<h:head>
-	<title>Warenkorb</title>
-</h:head>
-
-<h:body>
+	<ui:composition template="/templates/template.xhtml">
+		<ui:define name="head">
+				<title>	Warenkorb</title>
+		</ui:define>
+			
+		<ui:define name="content">
 	
-	<!-- TODO Orientierung User -->
-
-	<h1>Warenkorb</h1>
-		    
-	<h:dataTable var="ergebnis" value="#{shoppingcartBean.shoppingCart}">
-	
-		<h:column>
-			<h:outputText value="#{ergebnis.picture}"/>
-		</h:column>
-		 
-		<h:column>
-			<h:outputText value="#{ergebnis.name}"/>
-		</h:column>
+			<!-- TODO Orientierung User -->
 		
-		<h:column>
-			<h:outputText value="#{ergebnis.amount}"/>
-		</h:column>
-		
-		<h:column>
-			<h:outputText value="#{ergebnis.price}"/>
-		</h:column>
-		
-		<h:column>
-			<!-- Löschen -->
-			<h:commandButton value="removeArticleFromCart" action="#{shoppingcartBean.removeArticleFromCart}"></h:commandButton>
-		</h:column>
-		 
-	</h:dataTable>
-	
-	<!--TODO total  --> 
-	<!--TODO kaufen  --> 
-	<!--TODO Weitershoppen -> auf vorherige Seite zurück  --> 
-</h:body>
+			<h1>Warenkorb</h1>
+				    
+			<h:dataTable var="ergebnis" value="#{shoppingcartBean.shoppingCart}">
+			
+				<h:column>
+					<h:outputText value="#{ergebnis.picture}"/>
+				</h:column>
+				 
+				<h:column>
+					<h:outputText value="#{ergebnis.name}"/>
+				</h:column>
+				
+				<h:column>
+					<h:outputText value="#{ergebnis.amount}"/>
+				</h:column>
+				
+				<h:column>
+					<h:outputText value="#{ergebnis.price}"/>
+				</h:column>
+				
+				<h:column>
+					<!-- Löschen -->
+					<h:commandButton value="removeArticleFromCart" action="#{shoppingcartBean.removeArticleFromCart}"></h:commandButton>
+				</h:column>
+				 
+			</h:dataTable>
+			
+			<!--TODO total  --> 
+			<!--TODO kaufen  --> 
+			<!--TODO Weitershoppen -> auf vorherige Seite zurück  --> 
+			
+		</ui:define>
+	</ui:composition>
 </html>

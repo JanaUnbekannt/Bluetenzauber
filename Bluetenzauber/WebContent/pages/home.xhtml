@@ -8,44 +8,46 @@
 
 
 
-<h:head>
-	<title>Startseite</title>
-</h:head>
+	<ui:composition template="/templates/template.xhtml">
+		<ui:define name="head">
+				<title>	Startseite</title>
+		</ui:define>
+			
+		<ui:define name="content">
 
-<h:body>
-
-	<!-- stlye.css Allgemines Stylesheet-->
-	<h:outputStylesheet name="css/style.css" target="head" />
-
-	<!-- registration.css spezielles Stylesheet-->
-	<h:outputStylesheet name="css/home.css" target="head" />
-	
-
-	<h1>Startseite</h1>
-	
-	<h2>Angebote</h2>
-		    
-	<h:dataTable var="ergebnis" value="#{articleBean.articlesForSale}">
-	
-		<h:column>
-			<h:outputText value="#{ergebnis.picture}"/>
-		</h:column>
-		 
-		<h:column>
-			<h:outputText value="#{ergebnis.name}"/>
-		 </h:column>
-		 
-		 
-	</h:dataTable>
-	<h:form>
-		<h:commandButton value="test" action="#{articleBean.test}"></h:commandButton>
-	</h:form>
-	
-	<h2>Kategorien</h2>
-		    
-	<!-- verlinkte Bilder zu den Kategorien -->
-	<!-- Link mit Kategorie im Parameter zur Übersicht -->
+			<!-- stlye.css Allgemines Stylesheet-->
+			<h:outputStylesheet name="css/style.css" target="head" />
+		
+			<!-- registration.css spezielles Stylesheet-->
+			<h:outputStylesheet name="css/home.css" target="head" />
+			
+		
+			<h1>Startseite</h1>
+			
+			<h2>Angebote</h2>
+				    
+			<h:dataTable var="ergebnis" value="#{articleBean.articlesForSale}">
+			
+				<h:column>
+					<h:outputText value="#{ergebnis.picture}"/>
+				</h:column>
+				 
+				<h:column>
+					<h:outputText value="#{ergebnis.name}"/>
+				 </h:column>
+				 
+				 
+			</h:dataTable>
+			<h:form>
+				<h:commandButton value="test" action="#{articleBean.test}"></h:commandButton>
+			</h:form>
+			
+			<h2>Kategorien</h2>
+				    
+			<!-- verlinkte Bilder zu den Kategorien -->
+			<!-- Link mit Kategorie im Parameter zur Übersicht -->
    
 
-</h:body>
+		</ui:define>
+	</ui:composition>
 </html>

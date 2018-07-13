@@ -6,22 +6,25 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
 
-<head><title>Registration</title></head>
 
-<h:body>
-	
-	<!-- TODO Orientierung User oder Schritte Einkauf -->
 
-	<h1>Registration</h1>
+	<ui:composition template="/templates/template.xhtml">
+		<ui:define name="head">
+				<title>	Registration</title>
+		</ui:define>
+			
+		<ui:define name="content">
 	
-		Hallo <h:outputText value="#{userBean.user.firstname}"/>, 
-		Du bist jetzt registriert. 
+			<!-- TODO Orientierung User oder Schritte Einkauf -->
 		
-		<!-- Weitershoppen oder Einkaufabschließen -->
+			<h1>Registration</h1>
+			
+				Hallo <h:outputText value="#{userBean.user.firstname}"/>, 
+				Du bist jetzt registriert. 
+				
+				<!-- Weitershoppen oder Einkaufabschließen -->
+			
 	
-	
-
-
-
-</h:body>
+		</ui:define>
+	</ui:composition>
 </html>
