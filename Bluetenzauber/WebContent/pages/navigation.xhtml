@@ -14,15 +14,32 @@
 
 	 Kategorien
 	 <!-- Link -->
-     <!-- Link Home -->
 	
 	<table border = "1">
   		<tr>
-    		<th>Stauden</th>
+    		<th>
+    			<h:form>
+   
+		    		<h:commandLink 
+		    			value="Stauden" 
+		    			action="#{articleBean.getAllArticlesFromCategory('Stauden')}" />
+	 
+	    		</h:form>
+			
+			</th>
    		</tr>
    		
    		 <tr>
-    		<th>Blumensträuße</th>
+    		<th>
+    			<h:form>
+   
+		    		<h:commandLink 
+		    			value="Blumensträuße" 
+		    			action="#{articleBean.getAllArticlesFromCategory('Blumenstrauss')}" />
+	 
+	    		</h:form>
+    		
+    		</th>
    		</tr>
 
   	</table>

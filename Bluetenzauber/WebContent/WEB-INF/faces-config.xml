@@ -28,7 +28,7 @@
     	</navigation-case>
     </navigation-rule>
     
-    <!-- SEARCH FUNKTION -->
+    <!-- SEARCH FUNKTION_______________________________________________________________________ -->
      <navigation-rule>
     	<display-name>pages/home.xhtml</display-name>
     	<from-view-id>/pages/home.xhtml</from-view-id>
@@ -198,6 +198,19 @@
     		<redirect />
     	</navigation-case>
     </navigation-rule>
+    
+    <!-- navigation-rule>
+    	<display-name>pages/home.xhtml</display-name>
+    	<from-view-id>/pages/home.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{articleBean.getAllArticlesFromCategory}</from-action>
+    		<from-outcome>ok</from-outcome>
+    		<to-view-id>/pages/overview.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule-->
+    
+   <!-- SEARCH FUNKTION ENDE_______________________________________________________________________ -->
    
     <validator>
     	<display-name>emailValidator</display-name>

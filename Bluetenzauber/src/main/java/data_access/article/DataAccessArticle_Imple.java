@@ -163,6 +163,66 @@ public class DataAccessArticle_Imple {
 	      }
 	      return null;
 	}
+	
+	/**
+	 * Methode getArticles()
+	 * @return Liste von Artikeln einer Kategorie
+	 * @throws SQLException
+	 */
+	public List<Article> getArticlesFromCategory(String category) throws SQLException {
+		
+		int id;
+		String name;
+		String picture;
+		String color;
+		String description;
+		float price;
+		int amount;
+		//1 true, 0 false
+		int inOffer;
+	      
+	    Article article;
+	      
+	      //Liste zum speichern aller Article
+	      List<Article> allArticles = new LinkedList<Article>();
+	      int index=0;
+	      
+	      String sql= "SELECT * FROM artikel WHERE kategorie = ?"; 
+	      
+	      try{
+		      PreparedStatement stmt=connection.prepareStatement(sql);
+		      stmt.setString(1, category);
+		      ResultSet rs=stmt.executeQuery();
+		      
+		      //inhalte auslesen
+		      while(rs.next()){
+		          
+		          id           = rs.getInt("id");
+		          name         = rs.getString("bezeichnung");
+		  		  picture      = rs.getString("bild");
+				  color        = rs.getString("farbe");
+				  description  = rs.getString("beschreibung");
+				  price        = rs.getFloat("preis");
+				  amount       = rs.getInt("menge");
+				  inOffer      = rs.getInt("imAngebot");
+				  category     = rs.getString("kategorie");
+				  
+		          article = new Article(id, name, picture, color, description, price, amount, inOffer, category);
+		          
+		          
+		          //In Liste einfügen
+		          allArticles.add(article);
+		       
+		      }
+		      
+		      return allArticles;
+	      
+	      }
+	      catch(SQLException ex){
+	          Logger.getLogger(DataAccessArticle_Imple.class.getName()).log(Level.SEVERE, null, ex);
+	      }
+	      return null;
+	}
 
 	
 	/**

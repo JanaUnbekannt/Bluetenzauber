@@ -2,6 +2,7 @@ package presentation.managed_beans;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -33,9 +34,25 @@ public class ArticleBean implements Serializable {
 	public ArticleBean() {
 		
 		articleManager = new ArticleManager();
-		articles = articleManager.allArticles();
+		//articles = articleManager.allArticles();
 		//TODO Set Plant & BunchOfFlower Artikel
 		articlesForSale = articleManager.getForOfferArticles();
+	}
+	
+	/**
+	 * Methode getAllArticlesFromCategory()
+	 * Packt alle Artikel einer Category in eine Liste
+	 * @param category
+	 */
+	public String getAllArticlesFromCategory(String category) {
+		
+		articles = articleManager.allArticlesFromCategory(category);
+		System.out.println("Kategory "+ category);
+		return "/pages/overview.xhtml?faces-redirect=true";
+		
+		//Gehe zur Overview
+		//return "ok";
+	
 	}
 	
 	//Test

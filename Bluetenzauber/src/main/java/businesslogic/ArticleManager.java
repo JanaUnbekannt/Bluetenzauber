@@ -90,6 +90,21 @@ public class ArticleManager {
 		
 	}
 	
+	/** Liste mit allen Artikeln einer Kategorie aus der Datenbank holen */
+	public List <Article> allArticlesFromCategory(String category) {
+		
+		List <Article> list = null;
+		
+		try {
+			list = articleDAO.getArticlesFromCategory(category);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+		
+	}
+	
 
 	/** Staude aus Datenbank holen */
 	public Plant getPlant(int id) {
