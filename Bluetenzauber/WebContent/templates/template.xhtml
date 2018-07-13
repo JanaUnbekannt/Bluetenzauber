@@ -7,30 +7,26 @@
     xmlns:f="http://java.sun.com/jsf/core">
 
 
+<h:head> 
 
-<h:head> </h:head>
+		<div id ="header">
+			<ui:insert name ="header">
+				Default Header
+			</ui:insert>
+		</div>
+
+</h:head>
+
 <!-- TODO Mit CSS schön gestalten -->
 <!-- TODO Child-Template für Geschichten ohne Navigation ??? -->
 
 <h:body>
 
-
-
  	<h:outputStylesheet library="css" name="style.css"> </h:outputStylesheet>
-	<!--  div id ="header">
-		<ui:insert name="header">
-			<h1>My Header</h1>
-		</ui:insert>
-	</div--> 
-	
+
 	<!-- HEADER -->
 	<ui:include src="../pages/header.xhtml" />
 	
-	<!--  div id ="navigation">
-		<ui:insert name ="navigation">
-			<h2>My navigation</h2>
-		</ui:insert>
-	</div-->
 	<!-- Navigation -->
 	<ui:include src="../pages/navigation.xhtml" />
 	
@@ -39,12 +35,6 @@
 			<h2>Default Content</h2>
 		</ui:insert>
 	</div>
-	
-	<!--  div id ="footer">
-		<ui:insert name ="footer">
-			<h2>My Footer</h2>
-		</ui:insert>
-	</div-->
 	
 	<!-- FOOTER -->
 	<ui:include src="../pages/footer.xhtml" />

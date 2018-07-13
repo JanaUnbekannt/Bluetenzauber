@@ -7,7 +7,13 @@
     xmlns:f="http://java.sun.com/jsf/core">
     
 <h:head>
-	<title>Übersicht</title>
+	
+		<ui:composition template="/templates/template.xhtml">
+			<ui:define name="header">
+			<title>	Übersicht</title>
+			</ui:define>
+		</ui:composition>
+
 </h:head>
 
 <h:body>

@@ -58,16 +58,22 @@ public class ArticleBean implements Serializable {
 	 */
 	public String searchByName(){
 		
-		//TODO Redirect
-		if(articlesFromSearch.isEmpty()) {
+		if(articlesFromSearch != null) {
+	
+			if(articlesFromSearch.isEmpty()) {
+				
+				//Artikel konnten nicht gefunden werden
+				//return "search_no_result.xhtml";
+				return "noResult";
+				
+			}
 			
-			//Artikel konnten nicht gefunden werden
-			return "search_no_result.xhtml";
-			
+			//Zeige gefundene Artikel an
+			//return "search_result.xhtml";
+			return "showResult";
 		}
 		
-		//Zeige gefundene Artikel an
-		return "search_result.xhtml";
+		return "noResult";
 
 	}
 

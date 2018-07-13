@@ -28,12 +28,177 @@
     	</navigation-case>
     </navigation-rule>
     
+    <!-- SEARCH FUNKTION -->
+     <navigation-rule>
+    	<display-name>pages/home.xhtml</display-name>
+    	<from-view-id>/pages/home.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>showResult</from-outcome>
+    		<to-view-id>/pages/search_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>noResult</from-outcome>
+    		<to-view-id>/pages/search_no_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+    
     <navigation-rule>
     	<display-name>pages/overview.xhtml</display-name>
     	<from-view-id>/pages/overview.xhtml</from-view-id>
     	<navigation-case>
-    		<to-view-id>/pages/details.xhtml</to-view-id>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>showResult</from-outcome>
+    		<to-view-id>/pages/search_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>noResult</from-outcome>
+    		<to-view-id>/pages/search_no_result.xhtml</to-view-id>
+    		<redirect />
     	</navigation-case>
     </navigation-rule>
+    
+     <navigation-rule>
+    	<display-name>pages/details.xhtml</display-name>
+    	<from-view-id>/pages/details.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>showResult</from-outcome>
+    		<to-view-id>/pages/search_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>noResult</from-outcome>
+    		<to-view-id>/pages/search_no_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+    	<display-name>pages/finish_shopping.xhtml</display-name>
+    	<from-view-id>/pages/finish_shopping.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>showResult</from-outcome>
+    		<to-view-id>/pages/search_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>noResult</from-outcome>
+    		<to-view-id>/pages/search_no_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+    	<display-name>pages/registration_finish.xhtml</display-name>
+    	<from-view-id>/pages/registration_finish.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>showResult</from-outcome>
+    		<to-view-id>/pages/search_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>noResult</from-outcome>
+    		<to-view-id>/pages/search_no_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+    	<display-name>pages/login.xhtml</display-name>
+    	<from-view-id>/pages/login.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>showResult</from-outcome>
+    		<to-view-id>/pages/search_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>noResult</from-outcome>
+    		<to-view-id>/pages/search_no_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+    	<display-name>pages/registration.xhtml</display-name>
+    	<from-view-id>/pages/registration.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>showResult</from-outcome>
+    		<to-view-id>/pages/search_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>noResult</from-outcome>
+    		<to-view-id>/pages/search_no_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+    	<display-name>pages/search_result.xhtml</display-name>
+    	<from-view-id>/pages/search_result.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>showResult</from-outcome>
+    		<to-view-id>/pages/search_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>noResult</from-outcome>
+    		<to-view-id>/pages/search_no_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+    	<display-name>pages/search_no_result.xhtml</display-name>
+    	<from-view-id>/pages/search_no_result.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>showResult</from-outcome>
+    		<to-view-id>/pages/search_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>noResult</from-outcome>
+    		<to-view-id>/pages/search_no_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+    	<display-name>pages/shoppingcart.xhtml</display-name>
+    	<from-view-id>/pages/shoppingcart.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>showResult</from-outcome>
+    		<to-view-id>/pages/search_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>noResult</from-outcome>
+    		<to-view-id>/pages/search_no_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+   
+    
 
 </faces-config>
