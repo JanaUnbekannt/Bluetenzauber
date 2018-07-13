@@ -199,6 +199,10 @@
     	</navigation-case>
     </navigation-rule>
    
-    
+    <validator>
+    	<display-name>emailValidator</display-name>
+    	<validator-id>emailValidator</validator-id>
+    	<validator-class>presentation.validator.EMailValidator</validator-class>
+    </validator>
 
 </faces-config>

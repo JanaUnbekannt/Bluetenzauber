@@ -1,4 +1,4 @@
-rootProject.name = 'praktikum.webeng'
+rootProject.name = 'Bluetenzauber'
 
 include 'helloJava'
 include 'helloServlet'
@@ -9,9 +9,3 @@ include 'WebengShop'
 include 'WebengShop1'
 include 'WebengShop2'
 include 'Bluetenzauber'
-
-
-
-
-
-
