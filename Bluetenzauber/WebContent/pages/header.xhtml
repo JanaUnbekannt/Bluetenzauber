@@ -2,53 +2,61 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
 
 <h:head></h:head>
 
 <h:body>
+
+	<!-- stlye.css Allgemines Stylesheet-->
+	<h:outputStylesheet name="css/style.css" target="head" />
 	
-	<h1> Blumenshop Blütenzauber</h1>
-	
-	<!-- TODO Suche erst nach Eingabe des ersten Buchstaben starten -->
-	<!-- TODO Mehrer Ergebnisse (Liste von Artikeln)-->
-	<!-- TODO Auswahl aus Liste (Direkt zur Detailansicht) -->
-	
-	<!-- TODO Link zu Home -->
-	
-	<!-- Suchfunktion mit Ajax-->
-	<h:form id ="searchmask" styleClass="suche">
-		
-		<h:inputText id ="search" value ="#{articleBean.search}">
-		
-			<h:commandButton 
-				value="Suche " action="#{articleBean.searchByName}">
-	    	</h:commandButton>
-			
-			<f:ajax event="keyup" render="ergebnis" listener="#{articleBean.searchListener}"/>
-		</h:inputText>
-		<h:dataTable value ="#{articleBean.articlesFromSearch}" var="ergebnis" id ="ergebnis">
-			<h:column>
-				<!-- TODO Link einfügen -->
-				<h:outputText id = "output" value ="#{ergebnis.name}"/>
-			</h:column>
-		</h:dataTable>
-	</h:form>
-	
-		    
-	<!-- TODO Button Warenkorb -->
-	
-	<!-- User ist angemeldet: -->
-	<!-- TODO Hallo xy -->
-	<!-- TODO Logout -->
-	
-	<!-- User ist nicht angemeldet: -->
-	<!-- TODO Anmelden Link -->
+	<!-- registration.css spezielles Stylesheet-->
+	<h:outputStylesheet name="css/header.css" target="head" />
+
+	<h:panelGroup id="grid" sytleClass="header">
+		<h1>Blumenshop Blütenzauber</h1>
+
+		<!-- TODO Suche erst nach Eingabe des ersten Buchstaben starten -->
+		<!-- TODO Mehrer Ergebnisse (Liste von Artikeln)-->
+		<!-- TODO Auswahl aus Liste (Direkt zur Detailansicht) -->
+
+		<!-- TODO Link zu Home -->
+
+		<!-- Suchfunktion mit Ajax-->
+		<h:form id="searchmask" styleClass="suche">
+
+			<h:inputText id="search" value="#{articleBean.search}">
+
+				<h:commandButton value="Suche " action="#{articleBean.searchByName}">
+				</h:commandButton>
+
+				<f:ajax event="keyup" render="ergebnis"
+					listener="#{articleBean.searchListener}" />
+			</h:inputText>
+			<h:dataTable value="#{articleBean.articlesFromSearch}" var="ergebnis"
+				id="ergebnis">
+				<h:column>
+					<!-- TODO Link einfügen -->
+					<h:outputText id="output" value="#{ergebnis.name}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
 
 
+		<!-- TODO Button Warenkorb -->
+
+		<!-- User ist angemeldet: -->
+		<!-- TODO Hallo xy -->
+		<!-- TODO Logout -->
+
+		<!-- User ist nicht angemeldet: -->
+		<!-- TODO Anmelden Link -->
+
+	</h:panelGroup>
 </h:body>
 </html>
