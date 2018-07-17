@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+	<ui:composition template="/templates/template.xhtml">
+		<ui:define name="head">
+				<title>	Details Blumenstrauß</title>
+		</ui:define>
+			
+		<ui:define name="content">
+	
+			<!-- TODO Orientierung User -->
+		
+			<h1><!-- TODO get Attribute-Name --></h1>
+				    
+			<!-- TODO Ausgeben Info und Bild -->
+			<!-- TODO Anzahl für Warenkorb ändern -->
+			<!-- TODO Funktion: In den Warenkorb + Rückmeldung + Auf Seite verbleiben -->
+			
+			
+			<h1>Details Blumenstrauß</h1>
+				    
+			<h:form>
+				<h:outputText value="#{articleBean.flower.name}"/>
+				<h:graphicImage value="../resources/images/flower.jpg" width = "150" />
+				
+				<h:outputText value="Beschreibung: "/>
+				<h:outputText value="#{articleBean.flower.description}"/>
+				
+				<h:outputText value="Farbe: "/>
+				<h:outputText value="#{articleBean.flower.color}"/>
+				
+				<h:outputText value="Blumensorte: "/>
+				<h:outputText value="#{articleBean.flower.kindOfFlower}"/>
+				
+				<h:outputText value="Event: "/>
+				<h:outputText value="#{articleBean.flower.event}"/>
+		
+				
+				<h:outputText value="Preis: "/>
+				<h:outputText value="#{articleBean.flower.price}"/>
+				
+				<h:outputText value="Menge: "/>
+				<h:outputText value="#{articleBean.flower.amount}"/>
+					
+			</h:form>
+   
+		</ui:define>
+	</ui:composition>
+</html>

@@ -28,7 +28,10 @@ public class ArticleBean implements Serializable {
 	List <Article> articlesForSale;
 	List <Article> articlesFromSearch;
 	
+	Plant plant;
+	BunchOfFlowers flowers;
 	String search;
+
 	
 	
 	public ArticleBean() {
@@ -41,24 +44,40 @@ public class ArticleBean implements Serializable {
 	
 	/**
 	 * Methode getAllArticlesFromCategory()
-	 * Packt alle Artikel einer Category in eine Liste
+	 * Packt alle Artikel einer Category in eine Liste.
+	 * Und leitet zur ‹bersicht weiter.
 	 * @param category
 	 */
 	public String getAllArticlesFromCategory(String category) {
 		
 		articles = articleManager.allArticlesFromCategory(category);
-		System.out.println("Kategory "+ category);
 		return "/pages/overview.xhtml?faces-redirect=true";
+	
+	}
+	
+	/**
+	 * Methode redirectToDetails()
+	 * leitet auf die Detailseite eines Artikels
+	 * @param e
+	 */
+	public String redirectToDetails(int id, String category) {
 		
-		//Gehe zur Overview
-		//return "ok";
+		//Artikel ist eine Staude
+		if(category.equals("Stauden")) {
+			
+			plant = articleManager.getPlant(id);
+			return "/pages/details_plant.xhtml?faces-redirect=true";
+			
+		}else {
+			//Artikel ist ein Blumenstrauﬂ
+			flowers = articleManager.getBunchOfFlowers(id);
+			return "/pages/details_bunch_of_flowers.xhtml?faces-redirect=true";
+			
+		}
+		
 	
 	}
 	
-	//Test
-	public String test() {
-		return "test";
-	}
 	
 	// AJAX Listener
 	public void searchListener(AjaxBehaviorEvent e){
@@ -152,6 +171,24 @@ public class ArticleBean implements Serializable {
 	public void setSearch(String search) {
 		this.search = search;
 	}
+
+	public Plant getPlant() {
+		return plant;
+	}
+
+	public void setPlant(Plant plant) {
+		this.plant = plant;
+	}
+
+	public BunchOfFlowers getFlowers() {
+		return flowers;
+	}
+
+	public void setFlowers(BunchOfFlowers flowers) {
+		this.flowers = flowers;
+	}
+	
+	
 	
 	
 	

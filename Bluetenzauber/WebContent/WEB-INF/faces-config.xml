@@ -64,8 +64,25 @@
     </navigation-rule>
     
      <navigation-rule>
-    	<display-name>pages/details.xhtml</display-name>
-    	<from-view-id>/pages/details.xhtml</from-view-id>
+    	<display-name>pages/details_plant.xhtml</display-name>
+    	<from-view-id>/pages/details_plant.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>showResult</from-outcome>
+    		<to-view-id>/pages/search_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    	<navigation-case>
+    		<from-action>#{articleBean.searchByName}</from-action>
+    		<from-outcome>noResult</from-outcome>
+    		<to-view-id>/pages/search_no_result.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+    
+         <navigation-rule>
+    	<display-name>pages/details_bunch_of_flowers.xhtml</display-name>
+    	<from-view-id>/pages/details_bunch_of_flowers.xhtml</from-view-id>
     	<navigation-case>
     		<from-action>#{articleBean.searchByName}</from-action>
     		<from-outcome>showResult</from-outcome>
