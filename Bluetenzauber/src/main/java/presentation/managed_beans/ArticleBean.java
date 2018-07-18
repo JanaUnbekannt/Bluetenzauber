@@ -65,6 +65,7 @@ public class ArticleBean implements Serializable {
 		//Artikel ist eine Staude
 		if(category.equals("Stauden")) {
 			
+			
 			plant = articleManager.getPlant(id);
 			return "/pages/details_plant.xhtml?faces-redirect=true";
 			

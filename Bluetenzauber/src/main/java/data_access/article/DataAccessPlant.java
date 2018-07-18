@@ -73,6 +73,7 @@ public class DataAccessPlant extends DataAccessArticle_Imple {
                
                 //statement ausfuehren
                 stmt2.executeUpdate();
+               
                 
             } catch (SQLException ex) {
                 Logger.getLogger(DataAccessArticle_Imple.class.getName()).log(Level.SEVERE, null, ex);
@@ -90,20 +91,23 @@ public class DataAccessPlant extends DataAccessArticle_Imple {
 	 */
 	public Plant getArticle(int id) throws SQLException {
 		
-		String name;
-		String picture;
-		String color;
-		String description;
-		float price;
-		int amount;
-		//1 true, 0 false
-		int inOffer;
-		String category;
+		System.out.println("*************************************");
+		System.out.println("Methodde getArticle in Plant");
 		
-		String location;
-		int increasedHeight;
-		String floweringOf;
-		String floweringTo;
+		String name = null;
+		String picture = null;
+		String color = null;
+		String description = null;
+		float price = 0;
+		int amount = 0;
+		//1 true, 0 false
+		int inOffer = 0;
+		String category = null;
+		
+		String location = null;
+		int increasedHeight = 0;
+		String floweringOf = null;
+		String floweringTo = null;
 	      
 	    Plant plant;
 	    
@@ -112,22 +116,26 @@ public class DataAccessPlant extends DataAccessArticle_Imple {
 	      
 	    try{
 	    	
+	    	
 	      PreparedStatement stmt1=connection.prepareStatement(sql1);
 	      //ID von Artikel im SQL setzen
 	      stmt1.setInt(1,id);
 	      
 	      ResultSet rs1=stmt1.executeQuery();
 	      
-	      //Inhalte aus von Tabelle artikel aus Query lesen  
-          id           = rs1.getInt("id");
-          name         = rs1.getString("bezeichnung");
-  		  picture      = rs1.getString("bild");
-		  color        = rs1.getString("farbe");
-		  description  = rs1.getString("beschreibung");
-		  price        = rs1.getFloat("preis");
-		  amount       = rs1.getInt("menge");
-		  inOffer      = rs1.getInt("imAngebot");
-		  category     = rs1.getString("kategorie");
+	      while(rs1.next()){
+	      
+		      //Inhalte aus von Tabelle artikel aus Query lesen  
+	          id           = rs1.getInt("id");
+	          name         = rs1.getString("bezeichnung");
+	  		  picture      = rs1.getString("bild");
+			  color        = rs1.getString("farbe");
+			  description  = rs1.getString("beschreibung");
+			  price        = rs1.getFloat("preis");
+			  amount       = rs1.getInt("menge");
+			  inOffer      = rs1.getInt("imAngebot");
+			  category     = rs1.getString("kategorie");
+	      }
 			  
 	     
 	      PreparedStatement stmt2=connection.prepareStatement(sql2);
@@ -136,16 +144,19 @@ public class DataAccessPlant extends DataAccessArticle_Imple {
 	      
 	      ResultSet rs2=stmt2.executeQuery();
 	      
-	     //Inhalte aus von Tabelle artikel aus Query lesen    
-          id              = rs2.getInt("id");
-  		  location        = rs2.getString("standort");
-		  increasedHeight = rs2.getInt("wuchshoehe");
-		  floweringOf     = rs2.getString("bluetezeitVon");
-		  floweringTo     = rs2.getString("bluetezeitBis");
+	      while(rs2.next()){
+	      
+		     //Inhalte aus von Tabelle artikel aus Query lesen    
+	          id              = rs2.getInt("id");
+	  		  location        = rs2.getString("standort");
+			  increasedHeight = rs2.getInt("wuchshoehe");
+			  floweringOf     = rs2.getString("bluetezeitVon");
+			  floweringTo     = rs2.getString("bluetezeitBis");
+	      }
 			  
 		  plant = new Plant(id, name, picture, color, description, price, amount, inOffer, category,
 				  				location, increasedHeight, floweringOf, floweringTo);
-	          
+  
 	      return plant;
 	      
 	     }

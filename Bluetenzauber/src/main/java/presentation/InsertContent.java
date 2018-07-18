@@ -51,11 +51,11 @@ public class InsertContent extends HttpServlet {
         Plant plant5 = new Plant (5, "Dahlie",      "Bild","gelb","Ist nicht Winterhart",      20.00f,15,1,"Stauden","humoser Boden",      150, "Juli","September");
         
         //Erstelle Blumensträuße
-        BunchOfFlowers bunchOfFlowers1 = new BunchOfFlowers (1, "Blütentraum",     "Bild","bunt","Machen Sie einem geliebten Menschen eine Freude",  2.00f, 5,0,"Blumenstrauss", "Mischung", "Für jeden Anlass");
-        BunchOfFlowers bunchOfFlowers2 = new BunchOfFlowers (2, "Happy Birthday",  "Bild","blau","Machen Sie einem geliebten Menschen eine Freude", 10.00f,10,0,"Blumenstrauss", "Tulpen",   "Geburtstag");
-        BunchOfFlowers bunchOfFlowers3 = new BunchOfFlowers (3, "Für die Liebste", "Bild","rot", "Machen Sie einem geliebten Menschen eine Freude",  5.00f,20,0,"Blumenstrauss", "Rosen", "Liebe");
-        BunchOfFlowers bunchOfFlowers4 = new BunchOfFlowers (4, "Sommerglück",     "Bild","gelb","Machen Sie einem geliebten Menschen eine Freude",  1.00f,50,0,"Blumenstrauss", "Sonnenblumen", "Sommerfeste");
-        BunchOfFlowers bunchOfFlowers5 = new BunchOfFlowers (5, "Pretty Woman",    "Bild","pink","Machen Sie einem geliebten Menschen eine Freude", 20.00f,15,1,"Blumenstrauss", "Nelken","Liebe");
+        BunchOfFlowers bunchOfFlowers1 = new BunchOfFlowers (6, "Blütentraum",     "Bild","bunt","Machen Sie einem geliebten Menschen eine Freude",  2.00f, 5,0,"Blumenstrauss", "Mischung", "Für jeden Anlass");
+        BunchOfFlowers bunchOfFlowers2 = new BunchOfFlowers (7, "Happy Birthday",  "Bild","blau","Machen Sie einem geliebten Menschen eine Freude", 10.00f,10,0,"Blumenstrauss", "Tulpen",   "Geburtstag");
+        BunchOfFlowers bunchOfFlowers3 = new BunchOfFlowers (8, "Für die Liebste", "Bild","rot", "Machen Sie einem geliebten Menschen eine Freude",  5.00f,20,0,"Blumenstrauss", "Rosen", "Liebe");
+        BunchOfFlowers bunchOfFlowers4 = new BunchOfFlowers (9, "Sommerglück",     "Bild","gelb","Machen Sie einem geliebten Menschen eine Freude",  1.00f,50,0,"Blumenstrauss", "Sonnenblumen", "Sommerfeste");
+        BunchOfFlowers bunchOfFlowers5 = new BunchOfFlowers (10, "Pretty Woman",    "Bild","pink","Machen Sie einem geliebten Menschen eine Freude", 20.00f,15,1,"Blumenstrauss", "Nelken","Liebe");
         
         //Erstelle User
         User user1 = new User(1, "Hans",  "Peter",  "test@web.de", "123");

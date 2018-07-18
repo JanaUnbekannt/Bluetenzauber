@@ -77,18 +77,18 @@ public class DataAccessBunchofFlowers extends DataAccessArticle_Imple{
 	 */
 	public BunchOfFlowers getArticle(int id) throws SQLException {
 		
-		String name;
-		String picture;
-		String color;
-		String description;
-		float price;
-		int amount;
+		String name = null;
+		String picture = null;
+		String color = null;
+		String description = null;
+		float price = 0;
+		int amount = 0;
 		//1 true, 0 false
-		int inOffer;
-		String category;
+		int inOffer = 0;
+		String category = null;
 		
-		String kindOfFlower;
-		String event;
+		String kindOfFlower = null;
+		String event = null;
 	      
 	    BunchOfFlowers bunchOfFlowers;
 	    
@@ -102,17 +102,19 @@ public class DataAccessBunchofFlowers extends DataAccessArticle_Imple{
 	      stmt1.setInt(1,id);
 	      
 	      ResultSet rs1=stmt1.executeQuery();
+	      while(rs1.next()){
 	      
-	      //Inhalte aus von Tabelle artikel aus Query lesen  
-          id           = rs1.getInt("id");
-          name         = rs1.getString("bezeichnung");
-  		  picture      = rs1.getString("bild");
-		  color        = rs1.getString("farbe");
-		  description  = rs1.getString("beschreibung");
-		  price        = rs1.getFloat("preis");
-		  amount       = rs1.getInt("menge");
-		  inOffer      = rs1.getInt("imAngebot");
-		  category     = rs1.getString("kategorie");
+		      //Inhalte aus von Tabelle artikel aus Query lesen  
+	          id           = rs1.getInt("id");
+	          name         = rs1.getString("bezeichnung");
+	  		  picture      = rs1.getString("bild");
+			  color        = rs1.getString("farbe");
+			  description  = rs1.getString("beschreibung");
+			  price        = rs1.getFloat("preis");
+			  amount       = rs1.getInt("menge");
+			  inOffer      = rs1.getInt("imAngebot");
+			  category     = rs1.getString("kategorie");
+	      }
 			  
 	     
 	      PreparedStatement stmt2=connection.prepareStatement(sql2);
@@ -120,10 +122,12 @@ public class DataAccessBunchofFlowers extends DataAccessArticle_Imple{
 	      stmt2.setInt(1,id);
 	      
 	      ResultSet rs2=stmt2.executeQuery();
+	      while(rs2.next()){
 	      
-	     //Inhalte aus von Tabelle artikel aus Query lesen    
-	  	 kindOfFlower = rs2.getString("blumensorte");
-		 event        = rs2.getString("anlass");
+		     //Inhalte aus von Tabelle artikel aus Query lesen    
+		  	 kindOfFlower = rs2.getString("blumensorte");
+			 event        = rs2.getString("anlass");
+	      }
 			  
 		 bunchOfFlowers = new BunchOfFlowers(id, name, picture, color, description, price, amount, inOffer, category,
 				  				kindOfFlower, event);
