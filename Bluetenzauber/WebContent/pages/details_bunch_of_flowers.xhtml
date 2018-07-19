@@ -48,6 +48,10 @@
 				
 				<h:outputText value="Menge: "/>
 				<h:outputText value="#{articleBean.flowers.amount}"/>
+				
+				<h:commandButton value="In den Warenkorb" 
+							action="#{shoppingcartBean.addArticleCart(articleBean.flowers.id)}">
+				</h:commandButton>
 					
 			</h:form>
    

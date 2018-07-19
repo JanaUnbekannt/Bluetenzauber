@@ -1,6 +1,7 @@
 package transferobjects;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -11,11 +12,10 @@ public class ShoppingCart implements Serializable {
 	private List<Article> shoppingCart;
 	
 	//Konstruktor
-	public ShoppingCart(float total, List<Article> shoppingCart) {
+	public ShoppingCart() {
 		
-		this.total = total;
-		//this.amountInCart = amountInCart;
-		this.shoppingCart = shoppingCart;
+		total = 0;
+		shoppingCart = new LinkedList<Article>();
 		
 	}
 	

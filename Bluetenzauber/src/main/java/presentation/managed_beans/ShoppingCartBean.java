@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -18,64 +19,94 @@ import transferobjects.ShoppingCart;
 @SessionScoped
 public class ShoppingCartBean implements Serializable {
 	
-	private float total;
-	private List<Article> articlesInCart;
-	ShoppingCartManager cartManager;
- 	ShoppingCart cart;
- 	
- 	FacesContext facesContext; 
- 	HttpSession session;
- 	
-	
+	private ShoppingCartManager cartManager;
+ 	private ShoppingCart cart;
+ 	private List<Article>articleList;
+ 	private String total;
+ 	private boolean userStatus = false;
 	public ShoppingCartBean() {
 
 	   	cartManager  = new ShoppingCartManager();
-	   	
-	   	facesContext = FacesContext.getCurrentInstance();
-	    //Erstelle Session, wenn noch keine erstellt wurde 
-	   	session = (HttpSession) facesContext.getExternalContext().getSession(true);
+	   	cart = new ShoppingCart();
+	   	articleList = cart.getShoppingCart();
+	   	total = "0";
+	   
+	}
 	
-	    //Prüfe, ob es schon einen Warenkorb gibt
-	    if(session.getAttribute("cart")== null){
-	    	  
-	    	//Erstelle einen Warenkorb (Artikel-Liste)
-	    	articlesInCart = new LinkedList<>();
-	    	cart = new ShoppingCart(0,articlesInCart);
-	    	//Erstelle Warenkorb, wenn es keinen gibt (Speichere Session)
-	    	session.setAttribute("cart", cart);
-	     }else{
-	    	// Es existiert ein Warenkorb in der Session
-	    	cart = (ShoppingCart) session.getAttribute("cart");
-	    	articlesInCart = cart.getShoppingCart();
-	     }
+	/**
+	 * Entfernt einen Artikel vom Warenkorb
+	 * @param id
+	 * @return
+	 */
+	public String removeArticleFromCart(int id) {
+		cartManager.removeArtikelCart(cart, id);
+		calculate();
+		return null;
+	}
+	
+	/**
+	 * Füge einen Artikel dem Warenkorb hinzu
+	 * @param id
+	 */
+	public void addArticleCart(int id) {
+		//TODO Benachrichtigung ->Hinzugefügt oder ausverkauft
+		cartManager.addArtikelCart(cart, id);
+		calculate();
+	}
+	
+	public String buyArticles() {
+		
+		//User ist angemeldet
+		if(userStatus) {
+			cartManager.checkout(cart);
+			calculate();
+			return "/pages/finish_shopping.xhtml?faces-redirect=true";
+		}else {
+			
+			//User ist nicht angemeldet
+			return "/pages/login.xhtml?faces-redirect=true";
+		}
+		
+	}
+	
+	/**
+	 * Berechnet die Gesamtsumme
+	 */
+	public void calculate(){
+		
+		total = String.valueOf(cartManager.calculate(cart));
 		
 		
 	}
 
-	
-	//Getter and Setter
-	public float getTotal() {
+
+	//Getter and Setter *****************************************
+	public ShoppingCart getCart() {
+		return cart;
+	}
+
+
+	public void setCart(ShoppingCart cart) {
+		this.cart = cart;
+	}
+
+
+	public List<Article> getArticleList() {
+		return articleList;
+	}
+
+
+	public void setArticleList(List<Article> articleList) {
+		this.articleList = articleList;
+	}
+
+	public String getTotal() {
 		return total;
 	}
 
-
-	public void setTotal(float total) {
+	public void setTotal(String total) {
 		this.total = total;
 	}
 
-
-	public List<Article> getShoppingCart() {
-		return articlesInCart;
-	}
-
-
-	public void setShoppingCart(List<Article> shoppingCart) {
-		this.articlesInCart = shoppingCart;
-	}
-	
-	
-	
-	
-	
 
 }

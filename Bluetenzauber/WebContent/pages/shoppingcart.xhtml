@@ -17,34 +17,51 @@
 			<!-- TODO Orientierung User -->
 		
 			<h1>Warenkorb</h1>
+		
 				    
-			<h:dataTable var="ergebnis" value="#{shoppingcartBean.shoppingCart}">
+				<h:dataTable var="ergebnis" value="#{shoppingcartBean.articleList}">
+				
+					<h:column>
+						<f:facet name="header">Bezeichnung</f:facet>
+						<h:outputText value="#{ergebnis.name}"/>
+					</h:column>
+				
+					<h:column>
+						<h:graphicImage value="../resources/images/flower.jpg" width = "150" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Menge</f:facet>
+						<h:outputText value="#{ergebnis.amountInCart}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Preis</f:facet>
+						<h:outputText value="#{ergebnis.price}"/>
+					</h:column>
+					
+					<h:column>
+						<!-- Löschen -->
+						<h:form>
+							<h:commandButton value="Löschen" 
+								action="#{shoppingcartBean.removeArticleFromCart(ergebnis.id)}">
+							</h:commandButton>
+						</h:form>
+					</h:column>
+					 
+				</h:dataTable>
+				
+			<h:form>
+				
+				<h:outputText value="Gesamtsumme: "/>
+				<h:outputText value="#{shoppingcartBean.total}"/>
+				
+				<h:commandButton value="Artikel kaufen" 
+					action="#{shoppingcartBean.buyArticles}">
+				</h:commandButton>
+			</h:form>
 			
-				<h:column>
-					<h:outputText value="#{ergebnis.picture}"/>
-				</h:column>
-				 
-				<h:column>
-					<h:outputText value="#{ergebnis.name}"/>
-				</h:column>
-				
-				<h:column>
-					<h:outputText value="#{ergebnis.amount}"/>
-				</h:column>
-				
-				<h:column>
-					<h:outputText value="#{ergebnis.price}"/>
-				</h:column>
-				
-				<h:column>
-					<!-- Löschen -->
-					<h:commandButton value="removeArticleFromCart" action="#{shoppingcartBean.removeArticleFromCart}"></h:commandButton>
-				</h:column>
-				 
-			</h:dataTable>
-			
-			<!--TODO total  --> 
-			<!--TODO kaufen  --> 
+	
 			<!--TODO Weitershoppen -> auf vorherige Seite zurück  --> 
 			
 		</ui:define>

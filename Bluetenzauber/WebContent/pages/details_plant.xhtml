@@ -51,6 +51,10 @@
 				
 				<h:outputText value="Menge: "/>
 				<h:outputText value="#{articleBean.plant.amount}"/>
+				
+				<h:commandButton value="In den Warenkorb" 
+			    	action="#{shoppingcartBean.addArticleCart(articleBean.plant.id)}">
+				</h:commandButton>
 					
 			</h:form>
 				 

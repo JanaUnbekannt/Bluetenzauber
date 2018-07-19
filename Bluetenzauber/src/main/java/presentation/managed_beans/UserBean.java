@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
@@ -30,8 +31,7 @@ public class UserBean implements Serializable {
 	private String outputTextUser;
 	private String buttonLoginLogoutValue;
 	//wenn true, User ist angemeldet
-	private boolean userStatus;
-
+	boolean userStatus;
 	
 	public UserBean() {
 		
@@ -95,6 +95,7 @@ public class UserBean implements Serializable {
 			userStatus = true;
 			outputTextUser = "Hallo "+ user.getUsername();
 			buttonLoginLogoutValue = "Logout";
+			//User wollte etwas kaufen und ist jetzt angemeldet
 			return "/pages/home.xhtml?faces-redirect=true";
 		} else {
 			//Anmeldename oder Passwort ist falsch
@@ -152,9 +153,8 @@ public class UserBean implements Serializable {
 	public void setButtonLoginLogoutValue(String buttonLoginLogoutValue) {
 		this.buttonLoginLogoutValue = buttonLoginLogoutValue;
 	}
-	
-	
-	
+
+
 
 
 }

@@ -21,8 +21,6 @@
 	<h:panelGroup id="grid" sytleClass="header">
 		<h1>Blumenshop Blütenzauber</h1>
 
-		<!-- TODO Suche erst nach Eingabe des ersten Buchstaben starten -->
-		<!-- TODO Mehrer Ergebnisse (Liste von Artikeln)-->
 		<!-- TODO Auswahl aus Liste (Direkt zur Detailansicht) -->
 
 		<!-- TODO Link zu Home -->
@@ -55,16 +53,13 @@
 			</h:commandButton>
 		</h:form>
 		
+		<!-- Warenkorb -->
+		<h:form>
+			<h:commandButton value="Warenkorb" 
+							action="/pages/shoppingcart.xhtml?faces-redirect=true">
+			</h:commandButton>
+		</h:form>
 
-
-		<!-- TODO Button Warenkorb -->
-
-		<!-- User ist angemeldet: -->
-		<!-- TODO Hallo xy -->
-		<!-- TODO Logout -->
-
-		<!-- User ist nicht angemeldet: -->
-		<!-- TODO Anmelden Link -->
 
 	</h:panelGroup>
 </h:body>

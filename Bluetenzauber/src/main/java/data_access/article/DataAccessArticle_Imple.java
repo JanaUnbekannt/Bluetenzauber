@@ -378,5 +378,63 @@ public class DataAccessArticle_Imple {
 	      }
 	      return null;
 	}
+	
+	/**
+	 * Methode getArticle()
+	 * @param id
+	 * @return
+	 * @throws SQLException
+	 */
+	public Article getArticle(int id) throws SQLException {
+		
+		String name;
+		String picture;
+		String color;
+		String description;
+		float price;
+		int amount;
+		//1 true, 0 false
+		int inOffer;
+		String category;
+	      
+	    Article article;
+	    
+	    String sql= "SELECT * FROM artikel WHERE id = ?"; 
+	      
+	    try{
+	      PreparedStatement stmt=connection.prepareStatement(sql);
+	      //ID von Artikel im SQL setzen
+	      stmt.setInt(1,id);
+	      
+	      ResultSet rs=stmt.executeQuery();
+	      
+	      //inhalte auslesen
+	      while(rs.next()){
+	         
+	          id           = rs.getInt("id");
+	          name         = rs.getString("bezeichnung");
+	  		  picture      = rs.getString("bild");
+			  color        = rs.getString("farbe");
+			  description  = rs.getString("beschreibung");
+			  price        = rs.getFloat("preis");
+			  amount       = rs.getInt("menge");
+			  inOffer      = rs.getInt("imAngebot");
+			  category     = rs.getString("kategorie");
+			  
+	          article = new Article(id, name, picture, color, description, price, amount, inOffer, category);
+	          
+	          
+	          return article;
+	         
+	          
+	      }
+	      
+	     }
+	      catch(SQLException ex){
+	          Logger.getLogger(DataAccessArticle.class.getName()).log(Level.SEVERE, null, ex);
+	     }
+	      
+		return null;
+	}
 
 }
