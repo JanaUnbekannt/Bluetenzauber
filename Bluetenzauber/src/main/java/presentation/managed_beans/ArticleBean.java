@@ -62,7 +62,9 @@ public class ArticleBean implements Serializable {
 	 */
 	public String redirectToDetails(int id, String category) {
 		
-		articlesFromSearch.clear();
+		if(articlesFromSearch != null) {
+			articlesFromSearch.clear();
+		}
 		
 		//Artikel ist eine Staude
 		if(category.equals("Stauden")) {

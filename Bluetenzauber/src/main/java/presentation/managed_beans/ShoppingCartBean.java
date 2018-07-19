@@ -46,6 +46,7 @@ public class ShoppingCartBean implements Serializable {
 	 */
 	public String removeArticleFromCart(int id) {
 		cartManager.removeArtikelCart(cart, id);
+		articleList = cart.getShoppingCart();
 		calculate();
 		
 		return null;
@@ -58,6 +59,7 @@ public class ShoppingCartBean implements Serializable {
 	public void addArticleCart(int id) {
 		//TODO Benachrichtigung ->Hinzugefügt oder ausverkauft
 		cartManager.addArtikelCart(cart, id);
+		articleList = cart.getShoppingCart();
 		calculate();
 	}
 	
@@ -66,7 +68,7 @@ public class ShoppingCartBean implements Serializable {
 		cartManager.checkout(cart);
 		calculate();
 		//reset List
-		articleList = new LinkedList <Article> ();
+		articleList.clear();
 
 		return "/pages/finish_shopping.xhtml?faces-redirect=true";
 
