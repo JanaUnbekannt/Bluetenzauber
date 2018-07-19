@@ -46,6 +46,15 @@
 				</h:column>
 			</h:dataTable>
 		</h:form>
+		
+		<!-- User Login/Logout -->
+		<h:form>
+			<h:outputText value="#{userBean.outputTextUser}"></h:outputText>
+			<h:commandButton value="#{userBean.buttonLoginLogoutValue}" 
+							action="#{userBean.buttonLoginLogoutAction}">
+			</h:commandButton>
+		</h:form>
+		
 
 
 		<!-- TODO Button Warenkorb -->

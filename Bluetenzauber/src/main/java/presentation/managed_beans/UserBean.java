@@ -25,12 +25,23 @@ public class UserBean implements Serializable {
 	
 	UserManager userManager;
 	private User user;
-	private UIComponent loginButton;
+	
+	//Login und Logout Header
+	private String outputTextUser;
+	private String buttonLoginLogoutValue;
+	//wenn true, User ist angemeldet
+	private boolean userStatus;
 
 	
 	public UserBean() {
+		
 		userManager = new UserManager(); 
 		user = new User();
+		
+		//Login/Logout
+		outputTextUser = "Bitte Anmelden";
+		buttonLoginLogoutValue = "Login";
+		userStatus = false;
 	}
 	
 	
@@ -50,6 +61,27 @@ public class UserBean implements Serializable {
 	}
 	
 	/**
+	 * Logik für Login/Logout-Button in Header
+	 */
+	public String buttonLoginLogoutAction() {
+		
+		if(userStatus) {
+			
+			//User ist angemeldet
+			logout();
+			
+			//Refresh Header
+			return null;
+			
+		}else {
+			
+			//User ist NICHT angemeldet
+			return  "/pages/login.xhtml?faces-redirect=true";
+		
+		}
+	}
+	
+	/**
 	 * Login
 	 * TODO Navigation
 	 */
@@ -59,6 +91,10 @@ public class UserBean implements Serializable {
 			HttpSession session = SessionUtils.getSession();
 			//Nur Anmeldename wird in der Session gespeichert
 			session.setAttribute("username", user.getUsername());
+			//Für Header
+			userStatus = true;
+			outputTextUser = "Hallo "+ user.getUsername();
+			buttonLoginLogoutValue = "Logout";
 			return "/pages/home.xhtml?faces-redirect=true";
 		} else {
 			//Anmeldename oder Passwort ist falsch
@@ -75,10 +111,15 @@ public class UserBean implements Serializable {
 	 * TODO Navigation
 	 * @return
 	 */
-	public String logout() {
+	public void logout() {
 		HttpSession session = SessionUtils.getSession();
 		session.invalidate();
-		return "login";
+		//Für Header
+		userStatus = false;
+		outputTextUser = "Bitte Anmelden";
+		buttonLoginLogoutValue = "Login";
+		//Refresh Header
+		//return "/pages/header.xhtml?faces-redirect=true";
 	}
 	
 	
@@ -91,14 +132,28 @@ public class UserBean implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-    public void setMybutton(UIComponent mybutton) {
-        this.loginButton = mybutton;
-    }
 
-    public UIComponent getMybutton() {
-        return loginButton;
-    }
+
+	public String getOutputTextUser() {
+		return outputTextUser;
+	}
+
+
+	public void setOutputTextUser(String outputTextUser) {
+		this.outputTextUser = outputTextUser;
+	}
+
+
+	public String getButtonLoginLogoutValue() {
+		return buttonLoginLogoutValue;
+	}
+
+
+	public void setButtonLoginLogoutValue(String buttonLoginLogoutValue) {
+		this.buttonLoginLogoutValue = buttonLoginLogoutValue;
+	}
+	
+	
 	
 
 
