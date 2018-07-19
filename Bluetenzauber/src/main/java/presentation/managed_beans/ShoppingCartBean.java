@@ -68,7 +68,9 @@ public class ShoppingCartBean implements Serializable {
 		cartManager.checkout(cart);
 		calculate();
 		//reset List
-		articleList.clear();
+		articleList.clear();   
+		
+		
 
 		return "/pages/finish_shopping.xhtml?faces-redirect=true";
 
