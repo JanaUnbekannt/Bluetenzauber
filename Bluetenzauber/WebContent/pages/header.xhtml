@@ -27,20 +27,19 @@
 
 		<!-- Suchfunktion mit Ajax-->
 		<h:form id="searchmask" styleClass="suche">
-
+			<h:outputText  value="Suche: "/>
 			<h:inputText id="search" value="#{articleBean.search}">
-
-				<h:commandButton value="Suche " action="#{articleBean.searchByName}">
-				</h:commandButton>
 
 				<f:ajax event="keyup" render="ergebnis"
 					listener="#{articleBean.searchListener}" />
 			</h:inputText>
 			<h:dataTable value="#{articleBean.articlesFromSearch}" var="ergebnis"
 				id="ergebnis">
+
 				<h:column>
-					<!-- TODO Link einfügen -->
-					<h:outputText id="output" value="#{ergebnis.name}" />
+					<h:commandLink 
+						value="#{ergebnis.name}" 
+						action="#{articleBean.redirectToDetails(ergebnis.id, ergebnis.category)}" />
 				</h:column>
 			</h:dataTable>
 		</h:form>
