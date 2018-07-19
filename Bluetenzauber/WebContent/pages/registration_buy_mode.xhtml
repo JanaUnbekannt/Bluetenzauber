@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<ui:composition template="/templates/template.xhtml">
+		<ui:define name="head">
+				<title>	Registration</title>
+				<link href="https://fonts.googleapis.com/css?family=Lovers+Quarrel" rel="stylesheet"></link>
+		</ui:define>
+			
+		<ui:define name="content">
+
+			<!-- stlye.css Allgemines Stylesheet-->
+			<h:outputStylesheet name="css/style.css" target="head" />
+		
+			<!-- registration.css spezielles Stylesheet-->
+			<h:outputStylesheet name="css/registration.css" target="head" />
+		
+			<!-- TODO Orientierung User  oder Schritte Einkauf-->
+		
+			<h1>Registration</h1>
+		
+			<h:form>
+				<h:panelGrid id="grid" styleClass="form">
+					
+					<h:outputText value="Anmeldename" />
+					<h:inputText id="Anmeldename" value="#{userBean.user.username}"
+						required="true" requiredMessage="Sie müssen einen Anmeldenamen angeben">
+						<h:message for="Anmeldename" errorStyle="color:red;" />
+					</h:inputText>
+		
+					<br />
+					<h:outputText value="Vorname" />
+					<h:inputText id="Vorname" value="#{userBean.user.firstname}"
+						required="true" requiredMessage="Sie müssen einen Vornamen angeben">
+						<h:message for="Vorname" errorStyle="color:red;" />
+					</h:inputText>
+		
+					<br />
+					<h:outputText value="Nachname" />
+					<h:inputText id="Nachname" value="#{userBean.user.lastname}"
+						required="true" requiredMessage="Sie müssen einen Nachnamen angeben">
+						<h:message for="Nachname" errorStyle="color:red;" />
+					</h:inputText>
+		
+					<br />
+					<h:outputText value="Mail" />
+					<h:inputText value="#{userBean.user.eMail}" id="EMail"
+						required="true" requiredMessage="Sie müssen eine E-Mail angeben">
+						<!-- Ajax Validierung der E-Mail -->
+						<f:ajax render="errorMessageEmail save" execute="@this"
+							event="keyup"></f:ajax>
+						<f:validator validatorId="emailValidator" />
+						<h:message for="EMail" errorStyle="color:red;"
+							id="errorMessageEmail" />
+					</h:inputText>
+		
+					<br />
+					<h:outputText value="Passwort" />
+					<h:inputSecret id="Passwort" value="#{userBean.user.password}"
+						required="true" requiredMessage="Sie müssen ein Passwort angeben">
+						<h:message for="Passwort" errorStyle="color:red;" />
+						<br />
+					</h:inputSecret>
+					
+					<h:panelGroup sytleClass="buttons">
+					
+						<h:commandButton styleClass="speichern" id="save" value="Speichern"
+							action="#{userBean.saveUserShoppingMode}"></h:commandButton>
+						<h:commandButton styleClass="abbrechen" value="Abbruch"
+							action="/pages/home.xhtml" immediate="true"></h:commandButton>
+							
+					</h:panelGroup>
+					
+					<!-- TODO Button zur Anmeldung-->
+					
+				</h:panelGrid>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</html>
