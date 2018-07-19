@@ -27,11 +27,11 @@
 		
 			<h:form>
 				<h:panelGrid id="grid" styleClass="form">
-		
-					<h:outputText value="ID" />
-					<h:inputText id="ID" value="#{userBean.user.id}" required="true"
-						requiredMessage="TODO ID in SQL generieren">
-						<h:message for="ID" errorStyle="color:red;" />
+					
+					<h:outputText value="Anmeldename" />
+					<h:inputText id="Anmeldename" value="#{userBean.user.username}"
+						required="true" requiredMessage="Sie müssen einen Anmeldenamen angeben">
+						<h:message for="Anmeldename" errorStyle="color:red;" />
 					</h:inputText>
 		
 					<br />
