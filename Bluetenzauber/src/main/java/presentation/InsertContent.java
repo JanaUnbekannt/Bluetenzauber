@@ -58,11 +58,11 @@ public class InsertContent extends HttpServlet {
         BunchOfFlowers bunchOfFlowers5 = new BunchOfFlowers (10, "Pretty Woman",    "Bild","pink","Machen Sie einem geliebten Menschen eine Freude", 20.00f,15,1,"Blumenstrauss", "Nelken","Liebe");
         
         //Erstelle User
-        User user1 = new User(1, "Hans",  "Peter",  "test@web.de", "123");
-        User user2 = new User(2, "Maike", "Bauer",  "test@web.de", "123");
-        User user3 = new User(3, "Horst", "Müller", "test@web.de", "123");
-        User user4 = new User(4, "Anna",  "Knüll",  "test@web.de", "123");
-        User user5 = new User(5, "Piet",  "Driesch","test@web.de", "123");
+        User user1 = new User(0,"Test", "Hans",  "Peter",  "test@web.de", "123");
+        User user2 = new User(0, "Schnitte", "Maike", "Bauer",  "test@web.de", "123");
+        User user3 = new User(0, "Pusteblume", "Horst", "Müller", "test@web.de", "123");
+        User user4 = new User(0, "Digge", "Anna",  "Knüll",  "test@web.de", "123");
+        User user5 = new User(0, "Süßkartoffel", "Piet",  "Driesch","test@web.de", "123");
         
         //Tabellen löschen und erstellen
         articleManager.deleteArticleTables();

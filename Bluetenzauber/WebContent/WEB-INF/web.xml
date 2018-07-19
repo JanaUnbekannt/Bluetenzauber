@@ -30,6 +30,13 @@
 		<servlet-class>org.apache.myfaces.webapp.MyFacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+		<servlet>
+			<description>
+			</description>
+			<display-name>SessionUtils</display-name>
+			<servlet-name>SessionUtils</servlet-name>
+			<servlet-class>presentation.servlets.SessionUtils</servlet-class>
+		</servlet>
 
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
@@ -43,6 +50,10 @@
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SessionUtils</servlet-name>
+		<url-pattern>/SessionUtils</url-pattern>
 	</servlet-mapping>
 	<listener>
 	     <listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>

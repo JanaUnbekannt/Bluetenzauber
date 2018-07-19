@@ -7,6 +7,7 @@ import businesslogic.UserManager;
 public class User implements Serializable{
 	
 	private int id;
+	private String username;
 	private String firstname;
 	private String lastname;
 	private String eMail;
@@ -14,9 +15,10 @@ public class User implements Serializable{
 
 	
 	//Konstruktor
-	public User (int id, String firstname, String lastname, String eMail, String password){
+	public User (int id, String username, String firstname, String lastname, String eMail, String password){
 		
 		this.id = id;
+		this.username = username;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.eMail = eMail;
@@ -38,6 +40,18 @@ public class User implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 
 	public String getFirstname() {
 		return firstname;

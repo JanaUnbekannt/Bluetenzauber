@@ -15,10 +15,35 @@
 		<ui:define name="content">
 			
 			<!-- TODO Orientierung User oder Schritte Einkauf --> 
-			
-			<!-- TODO Login -->
+
 			<!-- TODO Weiterleitung auf vorherige Seite oder Einkauf abschließen -->
 			<!-- TOD= Button zur Registration -->
+			
+			<h:form>
+	
+				<h:outputText value="Anmeldename" />
+				<h:inputText id="username" value="#{userBean.user.username}"					
+					required="true" requiredMessage="Sie müssen einen Anmeldenamen angeben">
+					<h:message for="username" errorStyle="color:red;" />
+				</h:inputText>
+			
+				<br></br><br></br>
+		
+				<h:outputText value="Passwort" />
+				<h:inputSecret id="password" value="#{userBean.user.password}"
+					required="true" requiredMessage="Sie müssen einen Passwort angeben">
+					<h:message for="password" errorStyle="color:red;" />
+				</h:inputSecret>
+			
+				<br></br><br></br>
+				
+				<h:message for="loginButton"></h:message>
+				
+				<h:commandButton id="loginButton" action="#{userBean.validateUsernamePassword}"
+					value="Login">
+				</h:commandButton>
+				
+			</h:form>
 
 		</ui:define>
 	</ui:composition>

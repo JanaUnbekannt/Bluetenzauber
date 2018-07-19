@@ -15,7 +15,7 @@ import transferobjects.User;
 
 public class DataAccessUser_Imple {
 	
-	
+
 	Connection connection;
 	public DataAccessUser_Imple()
 	{
@@ -29,12 +29,13 @@ public class DataAccessUser_Imple {
 	 * @throws Exception
 	 */
 	public void createUserTable() throws Exception {
-        String sql1= "CREATE TABLE kunden (     \r\n" + 
-        		"    id INT,                    \r\n" + 
-        		"    vorname VARCHAR(30),       \r\n" + 
-        		"    nachname VARCHAR(30),      \r\n" + 
-        		"    email VARCHAR(30),         \r\n" + 
-        		"    passwort VARCHAR(30),      \r\n" + 
+        String sql1= "CREATE TABLE kunden (            \r\n" + 
+        		"    id INT NOT NULL AUTO_INCREMENT,   \r\n" + 
+        		"    username VARCHAR(30),             \r\n" + 
+        		"    vorname VARCHAR(30),              \r\n" + 
+        		"    nachname VARCHAR(30),             \r\n" + 
+        		"    email VARCHAR(30),                \r\n" + 
+        		"    passwort VARCHAR(30),             \r\n" + 
         		")"; 
 
         try {   
@@ -78,13 +79,13 @@ public class DataAccessUser_Imple {
 	 */
 	public void addUser(User newUser) throws Exception {
 		// SQL-Statement definieren
-        String sql1= "INSERT INTO kunden (id, vorname, nachname, email, passwort) VALUES (?,?,?,?,?)"; 
+        String sql1= "INSERT INTO kunden (username, vorname, nachname, email, passwort) VALUES (?,?,?,?,?)"; 
   
         try {        
                 PreparedStatement stmt1= connection.prepareStatement(sql1);
                 
-                //setzte Id
-                stmt1.setInt(1, newUser.getId());
+                //setzte Username
+                stmt1.setString(1, newUser.getUsername());
                 //setzte Artikelname
                 stmt1.setString(2, newUser.getFirstname());
                 //setzte Preis
@@ -111,7 +112,7 @@ public class DataAccessUser_Imple {
 	 */
 	public User getUser(int id) throws SQLException {
 		
-		
+		String username;
 		String firstname;
 		String lastname;
 		String eMail;
@@ -131,6 +132,7 @@ public class DataAccessUser_Imple {
 	      
 	      //Inhalte aus von Tabelle artikel aus Query lesen  
           id           = rs1.getInt("id");
+          username     = rs1.getString("username");
           firstname    = rs1.getString("vorname");
   		  lastname     = rs1.getString("nachname");
 		  eMail        = rs1.getString("email");
@@ -138,7 +140,7 @@ public class DataAccessUser_Imple {
 
 		
 			  
-		  user = new User(id, firstname, lastname, eMail, password);
+		  user = new User(id, username, firstname, lastname, eMail, password);
 	          
 	      return user;
 	      
@@ -148,6 +150,37 @@ public class DataAccessUser_Imple {
 	     }
 	      
 		return null;
+	}
+	
+	/**
+	 * Methode validate()
+	 * prüft ob sich ein User mit dem Passwort und dem Anmeldenamen
+	 * in der Datenbank befindet.
+	 * @param user
+	 * @param password
+	 * @return
+	 */
+	public boolean validate(String user, String password) {
+		
+		 String sql1= "Select username, passwort from kunden where username = ? and passwort = ?"; 
+
+		try {
+			PreparedStatement stmt1=connection.prepareStatement(sql1);
+	
+			stmt1.setString(1, user);
+			stmt1.setString(2, password);
+
+			ResultSet rs = stmt1.executeQuery();
+
+			if (rs.next()) {
+				//Der User existiert in der Datenbank
+				return true;
+			}
+		} catch (SQLException ex) {
+			System.out.println("Login error -->" + ex.getMessage());
+			return false;
+		} 
+		return false;
 	}
 
 }

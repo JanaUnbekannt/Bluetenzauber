@@ -67,4 +67,19 @@ public class UserManager {
 		return user;
 		
 	}
+	
+	public boolean validate(String user, String password) {
+		
+		boolean validateUser = false;
+		try {
+			validateUser = userDAO.validate(user, password);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return validateUser;
+		
+	}
 }
