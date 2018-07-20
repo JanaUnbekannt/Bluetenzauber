@@ -2,18 +2,17 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
+<h:head>
 
-<h:head> 
-
-		<div id ="head">
-			<ui:insert name ="head">
+	<div id="head">
+		<ui:insert name="head">
 				Default Head
 			</ui:insert>
-		</div>
+	</div>
 
 </h:head>
 
@@ -22,23 +21,25 @@
 
 <h:body>
 
- 	<h:outputStylesheet library="css" name="style.css"> </h:outputStylesheet>
+
+	<!-- stlye.css Allgemines Stylesheet-->
+	<h:outputStylesheet name="css/style.css" target="head" />
 
 	<!-- HEADER -->
-	<ui:include src="../pages/header.xhtml" />
-	
+	<ui:include src="../pages/header.xhtml" styleClass="header" />
+
 	<!-- Navigation -->
 	<ui:include src="../pages/navigation.xhtml" />
-	
-	<div id ="content">
-		<ui:insert name ="content">
+
+	<div id="content">
+		<ui:insert name="content">
 			<h2>Default Content</h2>
 		</ui:insert>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<ui:include src="../pages/footer.xhtml" />
-	
-   
+
+
 </h:body>
 </html>

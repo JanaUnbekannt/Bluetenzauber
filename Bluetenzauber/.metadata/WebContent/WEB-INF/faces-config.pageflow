@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15301264050520" configfile="/Bluetenzauber/WebContent/WEB-INF/faces-config.xml">
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15301264050520" configfile="/Bluetenzauber-Bluetenzauber/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="pages/login.xhtml" x="14" y="103" id="pf15302833064852" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf153148210021210 pf153148210021211" path="/pages/login.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/overview.xhtml" x="480" y="12" id="pf15302833064854" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf15314807293656 pf15314807293657" inlinks="pf15308744720696" path="/pages/overview.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/registration_finish.xhtml" x="252" y="103" id="pf15302833064856" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf153148210021212 pf153148210021213" path="/pages/registration_finish.xhtml"/>
@@ -12,27 +12,27 @@
   <nodes xsi:type="pageflow:PFPage" name="pages/details_plant.xhtml" id="pf153148210021328" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf15318583449200 pf15318583449202" path="/pages/details_plant.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/registration.xhtml" id="pf153148210021329" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf153148210021323 pf153148210021327" path="/pages/registration.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/details_bunch_of_flowers.xhtml" id="pf15318583449204" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf15318583449201 pf15318583449203" path="/pages/details_bunch_of_flowers.xhtml"/>
-  <links id="pf15308744720696" target="pf15302833064854" source="pf15308744720697" outcome="test" redirect="true" fromaction="#{articleBean.test}"/>
-  <links id="pf15314807293656" target="pf15314807293658" source="pf15302833064854" outcome="showResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf15314807293657" target="pf15314807293659" source="pf15302833064854" outcome="noResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021318" target="pf15314807293658" source="pf15308744720697" outcome="showResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021319" target="pf15314807293659" source="pf15308744720697" outcome="noResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021316" target="pf15314807293658" source="pf153028330650010" outcome="showResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021317" target="pf15314807293659" source="pf153028330650010" outcome="noResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021212" target="pf15314807293658" source="pf15302833064856" outcome="showResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021213" target="pf15314807293659" source="pf15302833064856" outcome="noResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021210" target="pf15314807293658" source="pf15302833064852" outcome="showResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021211" target="pf15314807293659" source="pf15302833064852" outcome="noResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021323" target="pf15314807293658" source="pf153148210021329" outcome="showResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021327" target="pf15314807293659" source="pf153148210021329" outcome="noResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021320" target="pf15314807293658" source="pf15314807293658" outcome="showResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021321" target="pf15314807293659" source="pf15314807293658" outcome="noResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021324" target="pf15314807293658" source="pf15314807293659" outcome="showResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021325" target="pf15314807293659" source="pf15314807293659" outcome="noResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021214" target="pf15314807293658" source="pf15302833065008" outcome="showResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf153148210021215" target="pf15314807293659" source="pf15302833065008" outcome="noResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf15318583449200" target="pf15314807293658" source="pf153148210021328" outcome="showResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf15318583449202" target="pf15314807293659" source="pf153148210021328" outcome="noResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf15318583449201" target="pf15314807293658" source="pf15318583449204" outcome="showResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
-  <links id="pf15318583449203" target="pf15314807293659" source="pf15318583449204" outcome="noResult" redirect="true" fromaction="#{articleBean.searchByName}"/>
+  <links id="pf15308744720696" target="pf15302833064854" source="pf15308744720697"/>
+  <links id="pf15314807293656" target="pf15314807293658" source="pf15302833064854"/>
+  <links id="pf15314807293657" target="pf15314807293659" source="pf15302833064854"/>
+  <links id="pf153148210021318" target="pf15314807293658" source="pf15308744720697"/>
+  <links id="pf153148210021319" target="pf15314807293659" source="pf15308744720697"/>
+  <links id="pf153148210021316" target="pf15314807293658" source="pf153028330650010"/>
+  <links id="pf153148210021317" target="pf15314807293659" source="pf153028330650010"/>
+  <links id="pf153148210021212" target="pf15314807293658" source="pf15302833064856"/>
+  <links id="pf153148210021213" target="pf15314807293659" source="pf15302833064856"/>
+  <links id="pf153148210021210" target="pf15314807293658" source="pf15302833064852"/>
+  <links id="pf153148210021211" target="pf15314807293659" source="pf15302833064852"/>
+  <links id="pf153148210021323" target="pf15314807293658" source="pf153148210021329"/>
+  <links id="pf153148210021327" target="pf15314807293659" source="pf153148210021329"/>
+  <links id="pf153148210021320" target="pf15314807293658" source="pf15314807293658"/>
+  <links id="pf153148210021321" target="pf15314807293659" source="pf15314807293658"/>
+  <links id="pf153148210021324" target="pf15314807293658" source="pf15314807293659"/>
+  <links id="pf153148210021325" target="pf15314807293659" source="pf15314807293659"/>
+  <links id="pf153148210021214" target="pf15314807293658" source="pf15302833065008"/>
+  <links id="pf153148210021215" target="pf15314807293659" source="pf15302833065008"/>
+  <links id="pf15318583449200" target="pf15314807293658" source="pf153148210021328"/>
+  <links id="pf15318583449202" target="pf15314807293659" source="pf153148210021328"/>
+  <links id="pf15318583449201" target="pf15314807293658" source="pf15318583449204"/>
+  <links id="pf15318583449203" target="pf15314807293659" source="pf15318583449204"/>
 </pageflow:Pageflow>

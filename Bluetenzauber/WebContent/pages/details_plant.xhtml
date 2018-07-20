@@ -6,15 +6,18 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
 
-
-
 	<ui:composition template="/templates/template.xhtml">
 		<ui:define name="head">
 				<title>	Details Staude</title>
+				
+				<link href="https://fonts.googleapis.com/css?family=Lovers+Quarrel"
+					rel="stylesheet"></link>
+				
 		</ui:define>
 			
 		<ui:define name="content">
-	
+			<!-- stlye.css Allgemines Stylesheet-->
+			<h:outputStylesheet name="css/style.css" target="head" />
 			<!-- TODO Orientierung User -->
 		
 			<h1><!-- TODO get Attribute-Name --></h1>
@@ -25,35 +28,35 @@
 			
 			<h1>Details Staude</h1>
 				    
-			<h:form>
+			<h:form styleClass="form">
 				<h:outputText value="#{articleBean.plant.name}"/>
 				<h:graphicImage value="../resources/images/flower.jpg" width = "150" />
-				
+				<br />
 				<h:outputText value="Beschreibung: "/>
 				<h:outputText value="#{articleBean.plant.description}"/>
-				
+				<br />
 				<h:outputText value="Farbe: "/>
 				<h:outputText value="#{articleBean.plant.color}"/>
-				
+				<br />
 				<h:outputText value="Standort: "/>
 				<h:outputText value="#{articleBean.plant.location}"/>
-				
+				<br />
 				<h:outputText value="Höhe: "/>
 				<h:outputText value="#{articleBean.plant.increasedHeight}"/>
-				
+				<br />
 				<h:outputText value="Blütezeit von "/>
 				<h:outputText value="#{articleBean.plant.floweringOf}"/>
 				<h:outputText value=" bis "/>
 				<h:outputText value="#{articleBean.plant.floweringTo}"/>
-				
+				<br />
 				<h:outputText value="Preis: "/>
 				<h:outputText value="#{articleBean.plant.price}"/>
-				
+				<br />
 				<h:outputText value="Menge: "/>
 				<h:outputText value="#{articleBean.plant.amount}"/>
 				
 				<h:messages globalOnly="true" style="list-style:none;" />
-				
+				<br />
 				<h:commandButton value="In den Warenkorb" 
 			    	action="#{shoppingcartBean.addArticleCart(articleBean.plant.id)}">
 				</h:commandButton>

@@ -2,68 +2,72 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
-	<ui:composition template="/templates/template.xhtml">
-		<ui:define name="head">
-				<title>	Warenkorb</title>
-		</ui:define>
-			
-		<ui:define name="content">
-	
-			<!-- TODO Orientierung User -->
-		
-			<h1>Warenkorb</h1>
-		
-				    
-				<h:dataTable var="ergebnis" value="#{shoppingcartBean.articleList}">
-				
-					<h:column>
-						<f:facet name="header">Bezeichnung</f:facet>
-						<h:outputText value="#{ergebnis.name}"/>
-					</h:column>
-				
-					<h:column>
-						<h:graphicImage value="../resources/images/flower.jpg" width = "150" />
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Menge</f:facet>
-						<h:outputText value="#{ergebnis.amountInCart}"/>
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Preis</f:facet>
-						<h:outputText value="#{ergebnis.price}"/>
-					</h:column>
-					
-					<h:column>
-						<!-- Löschen -->
-						<h:form>
-							<h:commandButton value="Löschen" 
-								action="#{shoppingcartBean.removeArticleFromCart(ergebnis.id)}">
-							</h:commandButton>
-						</h:form>
-					</h:column>
-					 
-				</h:dataTable>
-				
-			<h:form>
-				
-				<h:outputText value="Gesamtsumme: "/>
-				<h:outputText value="#{shoppingcartBean.total}"/>
-				
-				<h:commandButton value="Artikel kaufen" 
-					action="#{shoppingcartBean.buyArticles}">
-				</h:commandButton>
-			</h:form>
-			
-	
-			<!--TODO Weitershoppen -> auf vorherige Seite zurück  --> 
-			
-		</ui:define>
-	</ui:composition>
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="head">
+		<title>Warenkorb</title>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<!-- stlye.css Allgemines Stylesheet-->
+		<h:outputStylesheet name="css/style.css" target="head" />
+
+
+		<!-- TODO Orientierung User -->
+
+		<h1>Warenkorb</h1>
+
+
+		<h:dataTable var="ergebnis" value="#{shoppingcartBean.articleList}">
+
+			<h:column>
+				<f:facet name="header">Bezeichnung</f:facet>
+				<h:outputText value="#{ergebnis.name}" />
+			</h:column>
+
+			<h:column>
+				<h:graphicImage value="../resources/images/flower.jpg" width="150" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Menge</f:facet>
+				<h:outputText value="#{ergebnis.amountInCart}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Preis</f:facet>
+				<h:outputText value="#{ergebnis.price}" />
+			</h:column>
+
+			<h:column>
+				<!-- Löschen -->
+				<h:form>
+					<h:commandButton value="Löschen"
+						action="#{shoppingcartBean.removeArticleFromCart(ergebnis.id)}">
+					</h:commandButton>
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
+
+		<h:form>
+
+			<h:outputText value="Gesamtsumme: " />
+			<h:outputText value="#{shoppingcartBean.total}" />
+
+			<h:commandButton value="Artikel kaufen"
+				action="#{shoppingcartBean.buyArticles}">
+			</h:commandButton>
+		</h:form>
+
+
+		<!--TODO Weitershoppen -> auf vorherige Seite zurück  -->
+
+	</ui:define>
+</ui:composition>
 </html>

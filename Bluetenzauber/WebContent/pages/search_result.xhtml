@@ -2,42 +2,46 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
-    
-
-	<ui:composition template="/templates/template.xhtml">
-		<ui:define name="head">
-				<title>	Ergebnis Suche</title>
-		</ui:define>
-			
-		<ui:define name="content">
-	
-			<!-- TODO Orientierung User -->
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
-			<h1>Ergebnis Suche</h1>
-				    
-			<h:dataTable var="ergebnis" value="#{articleBean.articlesFromSearch}">
-			
-				<h:column>
-					<h:outputText value="#{ergebnis.id}"/>
-				</h:column>
-				 
-				<h:column>
-					<h:outputText value="#{ergebnis.name}"/>
-				</h:column>
-				
-				<h:column>
-					<!-- TODO Link zu Details -->
-				</h:column>
-				 
-			</h:dataTable>
-	
-		</ui:define>
-	</ui:composition>
-   
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="head">
+		<title>Ergebnis Suche</title>
+		<link href="https://fonts.googleapis.com/css?family=Lovers+Quarrel"
+			rel="stylesheet"></link>
+	</ui:define>
+
+	<ui:define name="content">
+		<!-- stlye.css Allgemines Stylesheet-->
+		<h:outputStylesheet name="css/style.css" target="head" />
+
+		<!-- TODO Orientierung User -->
+
+
+		<h1>Ergebnis Suche</h1>
+
+		<h:dataTable var="ergebnis" value="#{articleBean.articlesFromSearch}">
+
+			<h:column>
+				<h:outputText value="#{ergebnis.id}" />
+			</h:column>
+
+			<h:column>
+				<h:outputText value="#{ergebnis.name}" />
+			</h:column>
+
+			<h:column>
+				<!-- TODO Link zu Details -->
+			</h:column>
+
+		</h:dataTable>
+
+	</ui:define>
+</ui:composition>
+
 
 </h:body>
 </html>

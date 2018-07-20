@@ -13,12 +13,16 @@
 		</ui:define>
 			
 		<ui:define name="content">
+		
+		<!-- stlye.css Allgemines Stylesheet-->
+		<h:outputStylesheet name="css/style.css" target="head" />
 			
 			<!-- TODO Orientierung User oder Schritte Einkauf --> 
 
 			<!-- TODO Weiterleitung auf vorherige Seite oder Einkauf abschließen -->
 			<!-- TOD= Button zur Registration -->
-			
+			<h:panelGrid id="grid" styleClass="form">
+		
 			<h:form id="lform">
 	
 				<h:outputText value="Anmeldename" />
@@ -51,7 +55,7 @@
 				</h:commandButton>
 				
 			</h:form>
-
+</h:panelGrid>
 		</ui:define>
 	</ui:composition>
 </html>
