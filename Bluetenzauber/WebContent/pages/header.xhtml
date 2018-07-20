@@ -24,10 +24,37 @@
 	<!-- Suchfunktion mit Ajax-->
 	<h:form id="searchmask" styleClass="suche">
 
+<<<<<<< HEAD
 		<h:inputText id="search" value="#{articleBean.search}">
 
 			<h:commandButton value="Suche" styleClass="suchebutton"
 				action="#{articleBean.searchByName}">
+=======
+		<!-- Suchfunktion mit Ajax-->
+		<h:form id="searchmask" styleClass="suche">
+			<h:outputText  value="Suche: "/>
+			<h:inputText id="search" value="#{articleBean.search}">
+
+				<f:ajax event="keyup" render="ergebnis"
+					listener="#{articleBean.searchListener}" />
+			</h:inputText>
+			<h:dataTable value="#{articleBean.articlesFromSearch}" var="ergebnis"
+				id="ergebnis">
+
+				<h:column>
+					<h:commandLink 
+						value="#{ergebnis.name}" 
+						action="#{articleBean.redirectToDetails(ergebnis.id, ergebnis.category)}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+		
+		<!-- User Login/Logout -->
+		<h:form>
+			<h:outputText value="#{userBean.outputTextUser}"></h:outputText>
+			<h:commandButton value="#{userBean.buttonLoginLogoutValue}" 
+							action="#{userBean.buttonLoginLogoutAction}">
+>>>>>>> branch 'master' of https://github.com/JanaUnbekannt/Bluetenzauber.git
 			</h:commandButton>
 
 			<f:ajax event="keyup" render="ergebnis"

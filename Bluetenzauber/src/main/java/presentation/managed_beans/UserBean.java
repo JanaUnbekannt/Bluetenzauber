@@ -49,6 +49,7 @@ public class UserBean implements Serializable {
 		
 		//user = new User(user.getId(),user.getFirstname(),user.getLastname(),user.geteMail(), user.getPassword());
 		userManager.addUser(user);
+		
 		return "registration_finish.xhtml";
 		
 	}
@@ -122,6 +123,7 @@ public class UserBean implements Serializable {
 		//Refresh Header
 		//return "/pages/header.xhtml?faces-redirect=true";
 	}
+
 	
 	
 	

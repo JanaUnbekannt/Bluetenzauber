@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import businesslogic.ShoppingCartManager;
+import presentation.servlets.SessionUtils;
 import transferobjects.Article;
 import transferobjects.ShoppingCart;
 
@@ -23,13 +24,18 @@ public class ShoppingCartBean implements Serializable {
  	private ShoppingCart cart;
  	private List<Article>articleList;
  	private String total;
+ 	
+ 	//User angemeldet?
  	private boolean userStatus = false;
+ 	//HttpSession session;
+ 	
 	public ShoppingCartBean() {
 
 	   	cartManager  = new ShoppingCartManager();
 	   	cart = new ShoppingCart();
 	   	articleList = cart.getShoppingCart();
 	   	total = "0";
+	   	//session = SessionUtils.getSession();
 	   
 	}
 	
@@ -40,7 +46,9 @@ public class ShoppingCartBean implements Serializable {
 	 */
 	public String removeArticleFromCart(int id) {
 		cartManager.removeArtikelCart(cart, id);
+		articleList = cart.getShoppingCart();
 		calculate();
+		
 		return null;
 	}
 	
@@ -51,22 +59,21 @@ public class ShoppingCartBean implements Serializable {
 	public void addArticleCart(int id) {
 		//TODO Benachrichtigung ->Hinzugefügt oder ausverkauft
 		cartManager.addArtikelCart(cart, id);
+		articleList = cart.getShoppingCart();
 		calculate();
 	}
 	
 	public String buyArticles() {
 		
-		//User ist angemeldet
-		if(userStatus) {
-			cartManager.checkout(cart);
-			calculate();
-			return "/pages/finish_shopping.xhtml?faces-redirect=true";
-		}else {
-			
-			//User ist nicht angemeldet
-			return "/pages/login.xhtml?faces-redirect=true";
-		}
+		cartManager.checkout(cart);
+		calculate();
+		//reset List
+		articleList.clear();   
 		
+		
+
+		return "/pages/finish_shopping.xhtml?faces-redirect=true";
+
 	}
 	
 	/**

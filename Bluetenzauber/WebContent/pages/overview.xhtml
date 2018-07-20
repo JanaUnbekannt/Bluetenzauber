@@ -24,17 +24,18 @@
 
 		<h:dataTable var="ergebnis" value="#{articleBean.articles}">
 
-			<h:column>
-				<h:outputText value="#{ergebnis.id}" />
-			</h:column>
-
-			<h:column>
-				<h:outputText value="#{ergebnis.name}" />
-			</h:column>
-
-			<h:column>
-				<!-- TODO Link zu Details -->
-			</h:column>
+				<h:column>
+					<!-- h:outputText value="#{ergebnis.picture}"/-->
+					<h:graphicImage value="../resources/images/flower.jpg" width = "150" />
+				</h:column>
+				
+				<h:column>
+					<h:form>
+   						<h:commandLink 
+		    				value="#{ergebnis.name}" 
+		    				action="#{articleBean.redirectToDetails(ergebnis.id, ergebnis.category)}" />
+	    			</h:form>
+	    		</h:column>
 
 		</h:dataTable>
 

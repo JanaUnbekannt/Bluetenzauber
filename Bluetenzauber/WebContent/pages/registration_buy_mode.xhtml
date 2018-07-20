@@ -17,7 +17,9 @@
 
 			<!-- stlye.css Allgemines Stylesheet-->
 			<h:outputStylesheet name="css/style.css" target="head" />
-
+		
+			<!-- registration.css spezielles Stylesheet-->
+			<h:outputStylesheet name="css/registration.css" target="head" />
 		
 			<!-- TODO Orientierung User  oder Schritte Einkauf-->
 		
@@ -69,14 +71,9 @@
 					<h:panelGroup sytleClass="buttons">
 					
 						<h:commandButton styleClass="speichern" id="save" value="Speichern"
-							action="#{userBean.saveUser}"></h:commandButton>
+							action="#{userBean.saveUserShoppingMode}"></h:commandButton>
 						<h:commandButton styleClass="abbrechen" value="Abbruch"
 							action="/pages/home.xhtml" immediate="true"></h:commandButton>
-							
-						<h:commandButton value="Zur Anmeldung" 
-							action="/pages/login.xhtml?faces-redirect=true"
-							immediate="true">
-				        </h:commandButton>
 							
 					</h:panelGroup>
 					

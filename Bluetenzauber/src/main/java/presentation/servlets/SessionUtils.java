@@ -73,5 +73,13 @@ public class SessionUtils extends HttpServlet {
 		else
 			return null;
 	}
+	
+	public static boolean isUserLogged() {
+		HttpSession session = getSession();
+		if (session != null) 
+			return true;
+		else
+			return false;
+	}
 
 }
