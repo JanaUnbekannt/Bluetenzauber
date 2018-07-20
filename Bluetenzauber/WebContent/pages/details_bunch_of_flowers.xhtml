@@ -49,6 +49,8 @@
 				<h:outputText value="Menge: "/>
 				<h:outputText value="#{articleBean.flowers.amount}"/>
 				
+				<h:messages globalOnly="true" style="list-style:none;" />
+				
 				<h:commandButton value="In den Warenkorb" 
 							action="#{shoppingcartBean.addArticleCart(articleBean.flowers.id)}">
 				</h:commandButton>

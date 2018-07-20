@@ -27,11 +27,17 @@ public class UserBean implements Serializable {
 	UserManager userManager;
 	private User user;
 	
+	
 	//Login und Logout Header
 	private String outputTextUser;
 	private String buttonLoginLogoutValue;
 	//wenn true, User ist angemeldet
 	boolean userStatus;
+	String errorLogin;
+	
+	
+	//@ManagedProperty(value = "#{shoppingcartBean}")
+	//boolean shoppingMode;
 	
 	public UserBean() {
 		
@@ -42,6 +48,7 @@ public class UserBean implements Serializable {
 		outputTextUser = "Bitte Anmelden";
 		buttonLoginLogoutValue = "Login";
 		userStatus = false;
+		errorLogin = " ";
 	}
 	
 	
@@ -100,11 +107,11 @@ public class UserBean implements Serializable {
 			return "/pages/home.xhtml?faces-redirect=true";
 		} else {
 			//Anmeldename oder Passwort ist falsch
-			/*TODO Bug
+			
             FacesMessage message = new FacesMessage("Passwort oder Anmeldename ist falsch");
             FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage("loginbutton", message);*/
-			return  "/pages/login.xhtml";
+            context.addMessage(null, message);
+			return "/pages/login.xhtml";
 		}
 	}
 
@@ -155,6 +162,30 @@ public class UserBean implements Serializable {
 	public void setButtonLoginLogoutValue(String buttonLoginLogoutValue) {
 		this.buttonLoginLogoutValue = buttonLoginLogoutValue;
 	}
+
+
+	public String getErrorLogin() {
+		return errorLogin;
+	}
+
+
+	public void setErrorLogin(String errorLogin) {
+		this.errorLogin = errorLogin;
+	}
+
+
+	public boolean isUserStatus() {
+		return userStatus;
+	}
+
+
+	public void setUserStatus(boolean userStatus) {
+		this.userStatus = userStatus;
+	}
+	
+	
+	
+	
 
 
 

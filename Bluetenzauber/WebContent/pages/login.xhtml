@@ -19,7 +19,7 @@
 			<!-- TODO Weiterleitung auf vorherige Seite oder Einkauf abschließen -->
 			<!-- TOD= Button zur Registration -->
 			
-			<h:form>
+			<h:form id="lform">
 	
 				<h:outputText value="Anmeldename" />
 				<h:inputText id="username" value="#{userBean.user.username}"					
@@ -38,11 +38,12 @@
 			
 				<br></br><br></br>
 				
-				<h:message for="loginButton"></h:message>
+				<h:messages globalOnly="true" style="color:red; list-style:none;" />
 				
 				<h:commandButton id="loginButton" action="#{userBean.validateUsernamePassword}"
 					value="Login">
 				</h:commandButton>
+				
 				
 				<h:commandButton value="Zur Registrierung" 
 								action="/pages/registration.xhtml?faces-redirect=true"

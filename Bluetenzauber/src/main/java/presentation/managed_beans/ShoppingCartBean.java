@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -25,8 +26,13 @@ public class ShoppingCartBean implements Serializable {
  	private List<Article>articleList;
  	private String total;
  	
+ 	//boolean shoppingMode;
+ 	
+	//@ManagedProperty(value = "#{userBean}")
+	//boolean statusUser;
+ 	
  	//User angemeldet?
- 	private boolean userStatus = false;
+ 	//private boolean userStatus = false;
  	//HttpSession session;
  	
 	public ShoppingCartBean() {
@@ -61,6 +67,10 @@ public class ShoppingCartBean implements Serializable {
 		cartManager.addArtikelCart(cart, id);
 		articleList = cart.getShoppingCart();
 		calculate();
+		
+        FacesMessage message = new FacesMessage("Der Artikel wurde dem Warenkorb hinzugefügt");
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, message);
 	}
 	
 	public String buyArticles() {
