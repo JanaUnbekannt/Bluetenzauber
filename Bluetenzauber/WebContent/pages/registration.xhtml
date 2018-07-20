@@ -63,7 +63,6 @@
 					<h:inputSecret id="Passwort" value="#{userBean.user.password}"
 						required="true" requiredMessage="Sie müssen ein Passwort angeben">
 						<h:message for="Passwort" errorStyle="color:red;" />
-						<br />
 					</h:inputSecret>
 					
 					<h:panelGroup sytleClass="buttons">
@@ -73,7 +72,7 @@
 						<h:commandButton styleClass="abbrechen" value="Abbruch"
 							action="/pages/home.xhtml" immediate="true"></h:commandButton>
 							
-						<h:commandButton value="Zur Anmeldung" 
+						<h:commandButton value="Zur Anmeldung" styleClass="anmeldung"
 							action="/pages/login.xhtml?faces-redirect=true"
 							immediate="true">
 				        </h:commandButton>

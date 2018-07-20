@@ -109,6 +109,15 @@ body:before {
 }
 
 /*registration */
+.anmeldung{
+	color: black;
+	text-align: center;
+	display: inline-block;
+	margin: 4px;
+	border-radius: 8px;
+	border-color: SlateBlue;
+}
+
 .abbrechen {
 	color: black;
 	text-align: center;

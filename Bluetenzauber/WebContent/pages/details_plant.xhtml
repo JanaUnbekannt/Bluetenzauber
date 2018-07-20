@@ -2,65 +2,82 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
 
-	<ui:composition template="/templates/template.xhtml">
-		<ui:define name="head">
-				<title>	Details Staude</title>
-		</ui:define>
-			
-		<ui:define name="content">
-	
-			<!-- TODO Orientierung User -->
-		
-			<h1><!-- TODO get Attribute-Name --></h1>
-				    
-			<!-- TODO Ausgeben Info und Bild -->
-			<!-- TODO Anzahl für Warenkorb ändern -->
-			<!-- TODO Funktion: In den Warenkorb + Rückmeldung + Auf Seite verbleiben -->
-			
-			<h1>Details Staude</h1>
-				    
-			<h:form>
-				<h:outputText value="#{articleBean.plant.name}"/>
-				<h:graphicImage value="../resources/images/flower.jpg" width = "150" />
-				
-				<h:outputText value="Beschreibung: "/>
-				<h:outputText value="#{articleBean.plant.description}"/>
-				
-				<h:outputText value="Farbe: "/>
-				<h:outputText value="#{articleBean.plant.color}"/>
-				
-				<h:outputText value="Standort: "/>
-				<h:outputText value="#{articleBean.plant.location}"/>
-				
-				<h:outputText value="Höhe: "/>
-				<h:outputText value="#{articleBean.plant.increasedHeight}"/>
-				
-				<h:outputText value="Blütezeit von "/>
-				<h:outputText value="#{articleBean.plant.floweringOf}"/>
-				<h:outputText value=" bis "/>
-				<h:outputText value="#{articleBean.plant.floweringTo}"/>
-				
-				<h:outputText value="Preis: "/>
-				<h:outputText value="#{articleBean.plant.price}"/>
-				
-				<h:outputText value="Menge: "/>
-				<h:outputText value="#{articleBean.plant.amount}"/>
-				
-				<h:commandButton value="In den Warenkorb" 
-			    	action="#{shoppingcartBean.addArticleCart(articleBean.plant.id)}">
-				</h:commandButton>
-					
-			</h:form>
-				 
-				 
-		
-   
-		</ui:define>
-	</ui:composition>
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="head">
+		<title>Details Staude</title>
+		<link href="https://fonts.googleapis.com/css?family=Lovers+Quarrel"
+			rel="stylesheet"></link>
+	</ui:define>
+
+	<ui:define name="content">
+		<!-- stlye.css Allgemines Stylesheet-->
+		<h:outputStylesheet name="css/style.css" target="head" />
+		<!-- TODO Orientierung User -->
+
+		<h1>
+			<!-- TODO get Attribute-Name -->
+		</h1>
+
+		<!-- TODO Ausgeben Info und Bild -->
+		<!-- TODO Anzahl für Warenkorb ändern -->
+		<!-- TODO Funktion: In den Warenkorb + Rückmeldung + Auf Seite verbleiben -->
+
+		<h1>Details Staude</h1>
+
+		<h:form styleClass="form">
+			<h2>
+				<h:outputText value="#{articleBean.plant.name}" />
+			</h2>
+			<br />
+			<h:graphicImage value="../resources/images/flower.jpg" width="150" />
+			<br />
+
+			<h:outputText value="Beschreibung: " />
+			<h:outputText value="#{articleBean.plant.description}" />
+			<br />
+
+			<h:outputText value="Farbe: " />
+			<h:outputText value="#{articleBean.plant.color}" />
+			<br />
+
+			<h:outputText value="Standort: " />
+			<h:outputText value="#{articleBean.plant.location}" />
+			<br />
+
+			<h:outputText value="Höhe: " />
+			<h:outputText value="#{articleBean.plant.increasedHeight}" />
+			<br />
+
+			<h:outputText value="Blütezeit von " />
+			<h:outputText value="#{articleBean.plant.floweringOf}" />
+			<br />
+			<h:outputText value=" bis " />
+			<h:outputText value="#{articleBean.plant.floweringTo}" />
+			<br />
+
+			<h:outputText value="Preis: " />
+			<h:outputText value="#{articleBean.plant.price}" />
+			<br />
+
+			<h:outputText value="Menge: " />
+			<h:outputText value="#{articleBean.plant.amount}" />
+			<br />
+
+			<h:commandButton value="In den Warenkorb"
+				action="#{shoppingcartBean.addArticleCart(articleBean.plant.id)}">
+			</h:commandButton>
+
+		</h:form>
+
+
+
+
+	</ui:define>
+</ui:composition>
 </html>
