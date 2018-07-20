@@ -2,9 +2,9 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
 
@@ -12,38 +12,34 @@
 
 <h:body>
 
-	 Kategorien
-	 <!-- Link -->
-	
-	<table border = "1">
-  		<tr>
-    		<th>
-    			<h:form>
-   
-		    		<h:commandLink 
-		    			value="Stauden" 
-		    			action="#{articleBean.getAllArticlesFromCategory('Stauden')}" />
-	 
-	    		</h:form>
-			
-			</th>
-   		</tr>
-   		
-   		 <tr>
-    		<th>
-    			<h:form>
-   
-		    		<h:commandLink 
-		    			value="Blumensträuße" 
-		    			action="#{articleBean.getAllArticlesFromCategory('Blumenstrauss')}" />
-	 
-	    		</h:form>
-    		
-    		</th>
-   		</tr>
+	<!-- stlye.css Allgemines Stylesheet-->
+	<h:outputStylesheet name="css/style.css" target="head" />
 
-  	</table>
+	<div class="nav">
+		<h3>Kategorien</h3>
+		<!-- Link -->
 
+		<table border="1" class="tabelle">
+			<tr>
+				<th><h:form>
+
+						<h:commandLink value="Stauden" styleClass="stauden"
+							action="#{articleBean.getAllArticlesFromCategory('Stauden')}" />
+
+					</h:form></th>
+			</tr>
+
+			<tr>
+				<th><h:form>
+
+						<h:commandLink value="Blumensträuße" styleClass="blumenstraus"
+							action="#{articleBean.getAllArticlesFromCategory('Blumenstrauss')}" />
+
+					</h:form></th>
+			</tr>
+
+		</table>
+	</div>
 
 </h:body>
 </html>

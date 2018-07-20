@@ -10,57 +10,50 @@
 
 <h:head></h:head>
 
-<h:body>
+<h:body styleClass="body">
 
 	<!-- stlye.css Allgemines Stylesheet-->
 	<h:outputStylesheet name="css/style.css" target="head" />
-	
-	<!-- registration.css spezielles Stylesheet-->
-	<h:outputStylesheet name="css/header.css" target="head" />
 
-	<h:panelGroup id="grid" sytleClass="header">
-		<h1>Blumenshop Blütenzauber</h1>
+	<!-- Bild vom Logo -->
+	<h:graphicImage value="../resources/images/logo.jpg" styleClass="logo" />
 
-		<!-- TODO Auswahl aus Liste (Direkt zur Detailansicht) -->
+	<!-- TODO Auswahl aus Liste (Direkt zur Detailansicht) -->
 
-		<!-- TODO Link zu Home -->
+	<!-- TODO Link zu Home -->
+	<!-- Suchfunktion mit Ajax-->
+	<h:form id="searchmask" styleClass="suche">
 
-		<!-- Suchfunktion mit Ajax-->
-		<h:form id="searchmask" styleClass="suche">
+		<h:inputText id="search" value="#{articleBean.search}">
 
-			<h:inputText id="search" value="#{articleBean.search}">
-
-				<h:commandButton value="Suche " action="#{articleBean.searchByName}">
-				</h:commandButton>
-
-				<f:ajax event="keyup" render="ergebnis"
-					listener="#{articleBean.searchListener}" />
-			</h:inputText>
-			<h:dataTable value="#{articleBean.articlesFromSearch}" var="ergebnis"
-				id="ergebnis">
-				<h:column>
-					<!-- TODO Link einfügen -->
-					<h:outputText id="output" value="#{ergebnis.name}" />
-				</h:column>
-			</h:dataTable>
-		</h:form>
-		
-		<!-- User Login/Logout -->
-		<h:form>
-			<h:outputText value="#{userBean.outputTextUser}"></h:outputText>
-			<h:commandButton value="#{userBean.buttonLoginLogoutValue}" 
-							action="#{userBean.buttonLoginLogoutAction}">
+			<h:commandButton value="Suche" styleClass="suchebutton"
+				action="#{articleBean.searchByName}">
 			</h:commandButton>
-		</h:form>
-		
-		<!-- Warenkorb -->
-		<h:form>
-			<h:commandButton value="Warenkorb" 
-							action="/pages/shoppingcart.xhtml?faces-redirect=true">
-			</h:commandButton>
-		</h:form>
 
+			<f:ajax event="keyup" render="ergebnis"
+				listener="#{articleBean.searchListener}" />
+		</h:inputText>
+		<h:dataTable value="#{articleBean.articlesFromSearch}" var="ergebnis"
+			id="ergebnis">
+			<h:column>
+				<!-- TODO Link einfügen -->
+				<h:outputText id="output" value="#{ergebnis.name}" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+	<!-- Warenkorb -->
+	<h:form>
+		<h:commandButton value="Warenkorb" styleClass="warenkorb"
+			action="/pages/shoppingcart.xhtml?faces-redirect=true">
+		</h:commandButton>
+	</h:form>
 
-	</h:panelGroup>
+	<!-- User Login/Logout -->
+	<h:form styleClass="leerzeichen">
+		<h:outputText value="#{userBean.outputTextUser}"></h:outputText>
+		<h:commandButton value="#{userBean.buttonLoginLogoutValue}"
+			styleClass="Login" action="#{userBean.buttonLoginLogoutAction}">
+		</h:commandButton>
+	</h:form>
 </h:body>
 </html>

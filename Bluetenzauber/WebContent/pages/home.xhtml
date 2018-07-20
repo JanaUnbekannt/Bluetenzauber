@@ -2,54 +2,51 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
 
-	<ui:composition template="/templates/template.xhtml">
-		<ui:define name="head">
-				<title>	Startseite</title>
-		</ui:define>
-			
-		<ui:define name="content">
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="head">
+		<title>Startseite</title>
+	</ui:define>
 
-			<!-- stlye.css Allgemines Stylesheet-->
-			<h:outputStylesheet name="css/style.css" target="head" />
-		
-			<!-- registration.css spezielles Stylesheet-->
-			<h:outputStylesheet name="css/home.css" target="head" />
-			
-		
-			<h1>Startseite</h1>
-			
-			<h2>Angebote</h2>
-				    
-			<h:dataTable var="ergebnis" value="#{articleBean.articlesForSale}">
-			
-				<h:column>
-					<!-- h:outputText value="#{ergebnis.picture}"/-->
-					<h:graphicImage value="../resources/images/flower.jpg" width = "150" />
-				</h:column>
-				
-				<h:column>
-					<h:form>
-   						<h:commandLink 
-		    				value="#{ergebnis.name}" 
-		    				action="#{articleBean.redirectToDetails(ergebnis.id, ergebnis.category)}" />
-	    			</h:form>
-	    		</h:column>
-				 
-			</h:dataTable>
+	<ui:define name="content">
 
-			
-			<!-- h2>Kategorien</h2-->
-				    
-			<!-- verlinkte Bilder zu den Kategorien -->
-			<!-- Link mit Kategorie im Parameter zur Übersicht -->
-   
+		<!-- stlye.css Allgemines Stylesheet-->
+		<h:outputStylesheet name="css/style.css" target="head" />
 
-		</ui:define>
-	</ui:composition>
+
+
+		<h1>Startseite</h1>
+
+		<h2>Angebote</h2>
+
+		<h:dataTable var="ergebnis" value="#{articleBean.articlesForSale}">
+
+			<h:column>
+				<!-- h:outputText value="#{ergebnis.picture}"/-->
+				<h:graphicImage value="../resources/images/flower.jpg" width="150" />
+			</h:column>
+
+			<h:column>
+				<h:form>
+					<h:commandLink value="#{ergebnis.name}"
+						action="#{articleBean.redirectToDetails(ergebnis.id, ergebnis.category)}" />
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
+
+
+		<!-- h2>Kategorien</h2-->
+
+		<!-- verlinkte Bilder zu den Kategorien -->
+		<!-- Link mit Kategorie im Parameter zur Übersicht -->
+
+
+	</ui:define>
+</ui:composition>
 </html>
